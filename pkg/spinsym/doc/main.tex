@@ -98,7 +98,7 @@
 {\Huge \textbf{Brauer tables of spin-symmetric groups\mbox{}}}\\
 \vfill
 
-{\Huge Version 1.2 (2013)\mbox{}}\\[1cm]
+{\Huge Version 1.3 (2013)\mbox{}}\\[1cm]
 {\mbox{}}\\[1cm]
 \mbox{}\\[2cm]
 {\Large \textbf{Lukas Maas \mbox{}}}\\
@@ -188,7 +188,7 @@ functions that compute character tables of some Young subgroups of  $\tilde{S}_n
 \logpage{[ 1, 3, 0 ]}
 \hyperdef{L}{X86C437C47F3988E8}{}
 {
-  To install this package, download the archive file \texttt{spinsym-1.1.tar.gz} and unpack it inside the \texttt{pkg} subdirectory of your \textsf{GAP} installation. It creates a subdirectory called \texttt{spinsym}. Then load the package using the \texttt{LoadPackage} command. 
+  To install this package, download the archive file \texttt{spinsym-1.3.tar.gz} and unpack it inside the \texttt{pkg} subdirectory of your \textsf{GAP} installation. It creates a subdirectory called \texttt{spinsym}. Then load the package using the \texttt{LoadPackage} command. 
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
   
   !gapprompt@gap>| !gapinput@LoadPackage("spinsym");|
@@ -199,7 +199,7 @@ of the installation:
 \begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
   
   !gapprompt@gap>| !gapinput@dir:= DirectoriesPackageLibrary( "spinsym", "tst" )[1];;|
-  !gapprompt@gap>| !gapinput@tst:= Filename( dir, "testall.g" );;|
+  !gapprompt@gap>| !gapinput@tst:= Filename( dir, "testall.tst" );;|
   !gapprompt@gap>| !gapinput@Test( tst );|
   true
   
@@ -525,7 +525,7 @@ the ordinary character table of a maximal Young subgroup depending on \mbox{\tex
  For integers \mbox{\texttt{\mdseries\slshape k}} and \mbox{\texttt{\mdseries\slshape l}} greater than $1$ the function returns the ordinary character table of $\tilde{A}_{k,l}$, $\tilde{A}_k\circ\tilde{S}_l$, $\tilde{S}_k\circ\tilde{A}_l$, or $\tilde{S}_{k,l}$ depending on the string \mbox{\texttt{\mdseries\slshape type}} being \texttt{"Alternating"}, \texttt{"AlternatingSymmetric"}, \texttt{"SymmetricAlternating"}, or \texttt{"Symmetric"}, respectively.
 
  If \mbox{\texttt{\mdseries\slshape type}} is \texttt{"Symmetric"} then the output is computed by means of Clifford's theory from the character
-tables of $\tilde{S}_k\circ\tilde{A}_l$, $\tilde{A}_{k,l}$, and $\tilde{A}_k\circ\tilde{S}_l$ (see \cite[Section 5.2]{Maas2011}). These `ingredients' are computed and then stored in the attribute \texttt{Ingredients} so they can be accessed during the construction (and for the construction of a
+tables of $\tilde{S}_k\circ\tilde{A}_l$, $\tilde{A}_{k,l}$, and $\tilde{A}_k\circ\tilde{S}_l$ (see \cite[Section 5.2]{Maas2011}). These `ingredients' are computed and then stored in the attribute \texttt{SpinSymIngredients} so they can be accessed during the construction (and for the construction of a
 relative Brauer table too, see \texttt{SpinSymBrauerTableOfMaximalYoungSubgroup} (\ref{SpinSymBrauerTableOfMaximalYoungSubgroup})). 
 
  The construction of the character tables of \mbox{\texttt{\mdseries\slshape type}} \texttt{"Alternating"}, \texttt{"AlternatingSymmetric"}, or \texttt{"SymmetricAlternating"} is straightforward and may be accomplished by first construcing a direct

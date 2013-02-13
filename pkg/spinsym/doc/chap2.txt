@@ -424,7 +424,7 @@
   [33X[0;0YIf  [3Xtype[103X  is  [10X"Symmetric"[110X then the output is computed by means of Clifford's
   theory  from  the  character tables of [22X2.(Sym(k)×Alt(l))[122X, [22X2.(Alt(k)×Alt(l))[122X,
   and  [22X2.(Alt(k)×Sym(l))[122X  (see  [Maa11, Section 5.2]). These `ingredients' are
-  computed  and  then  stored  in  the  attribute  [10XIngredients[110X  so they can be
+  computed  and then stored in the attribute [10XSpinSymIngredients[110X so they can be
   accessed  during  the  construction  (and for the construction of a relative
   Brauer table too, see [2XSpinSymBrauerTableOfMaximalYoungSubgroup[102X ([14X2.4-2[114X)).[133X
   

@@ -39,4 +39,4 @@ spinsym/doc/times.css
 spinsym/doc/chap1_mj.html
 spinsym/doc/biblio.xml
 spinsym/doc/chap0.html
-spinsym/tst/testall.g
+spinsym/tst/testall.tst

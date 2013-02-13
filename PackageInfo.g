@@ -34,7 +34,7 @@ Subtitle := "Brauer tables of spin-symmetric groups",
 ##  See '?Extending: Version Numbers' in GAP help for an explanation
 ##  of valid version numbers. For an automatic package distribution update
 ##  you must provide a new version number even after small changes.
-Version := "1.2",
+Version := "1.3",
 
 ##  Release date of the current version in dd/mm/yyyy format.
 Date := "01/02/2013",
@@ -48,7 +48,7 @@ Date := "01/02/2013",
 ##  example/init.g, ...    or  example-1.3/init.g, ...  )
 # 
 ArchiveURL := 
-          "http://www.uni-due.de/~s400304/spinsym/pkg/spinsym-1.2",
+          "http://www.uni-due.de/~s400304/spinsym/pkg/spinsym-1.3",
 
 ##  All provided formats as list of file extensions, separated by white
 ##  space or commas.
@@ -298,11 +298,6 @@ BannerString := Concatenation(
    "| SpinSym ", ~.Version, " (The SpinSym Package) |\n",
    "| Try '?SpinSym package' for help.  |\n", 
    "+-----------------------------------+\n" ),       
-##  Suggest here if the package should be *automatically loaded* when GAP is 
-##  started.  This should usually be 'false'. Say 'true' only if your package 
-##  provides some improvements of the GAP library which are likely to enhance 
-##  the overall system performance for many users.
-Autoload := false,
 
 ##  *Optional*, but recommended: path relative to package root to a file which 
 ##  contains as many tests of the package functionality as sensible.
@@ -311,7 +306,7 @@ Autoload := false,
 ##  the file contains the string 'gap> START_TEST('.
 ##  For submitted packages, these tests are run regularly, as a part of the
 ##  standard GAP test suite.
-TestFile := "tst/testall.g",
+TestFile := "tst/testall.tst",
 
 ##  *Optional*: Here you can list some keyword related to the topic 
 ##  of the package.

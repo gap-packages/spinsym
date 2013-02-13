@@ -350,9 +350,9 @@ InstallGlobalFunction( SPINSYM_YNG_HEAD,
               2ND:=  2ND );
   
   if type <> "SS" then
-		SetIngredients( tbl, [ CT1, CT2, info ] );
+		SetSpinSymIngredients( tbl, [ CT1, CT2, info ] );
 	else
-		SetIngredients( tbl, [ CT1, CT2, info,
+		SetSpinSymIngredients( tbl, [ CT1, CT2, info,
 				CharacterTable( "DoubleCoverAlternating", k ),
 	  	  CharacterTable( "DoubleCoverAlternating", l ) ] );
 	fi;
@@ -372,12 +372,12 @@ InstallGlobalFunction( SPINSYM_YNG_HEADREG,
 	local CT1, CT2, info, AT1, AT2,
 	 			modtbl, fus, ccl, i;
 	  									 		
-	CT1:= Ingredients( tbl )[ 1 ] mod p;
-	CT2:= Ingredients( tbl )[ 2 ] mod p;
-	info:= ShallowCopy( Ingredients( tbl )[ 3 ] );
+	CT1:= SpinSymIngredients( tbl )[ 1 ] mod p;
+	CT2:= SpinSymIngredients( tbl )[ 2 ] mod p;
+	info:= ShallowCopy( SpinSymIngredients( tbl )[ 3 ] );
 	if info.type = "SS" then
-		AT1:= Ingredients( tbl )[ 4 ] mod p;
-		AT2:= Ingredients( tbl )[ 5 ] mod p;
+		AT1:= SpinSymIngredients( tbl )[ 4 ] mod p;
+		AT2:= SpinSymIngredients( tbl )[ 5 ] mod p;
 	else AT1:= false; AT2:= false; fi;
 	if CT1 = fail or CT2 = fail 
 	or AT1 = fail or AT2 = fail then 
@@ -416,9 +416,9 @@ InstallGlobalFunction( SPINSYM_YNG_HEADREG,
 	od;
 
   if info.type <> "SS" then
-		SetIngredients( modtbl, [ CT1, CT2, info ] );
+		SetSpinSymIngredients( modtbl, [ CT1, CT2, info ] );
 	else
-		SetIngredients( modtbl, [ CT1, CT2, info, AT1, AT2 ] );
+		SetSpinSymIngredients( modtbl, [ CT1, CT2, info, AT1, AT2 ] );
 	fi;
 	
 	return modtbl;
@@ -437,15 +437,15 @@ InstallGlobalFunction( SPINSYM_YNG_POWERMAPS,
   			res, CLPAR, signs, pow, p, powk, powl, 
   			cl, cl1, cl2, pos, i, c, d, j1, j2; 
 
-	if not HasIngredients( tbl ) then
+	if not HasSpinSymIngredients( tbl ) then
 	 	Error( "the ingredients of <tbl> must be known; " );
 		return;
 	fi;
 
 	# shortcuts
-	POW1:= ComputedPowerMaps( Ingredients( tbl )[1] );
-	POW2:= ComputedPowerMaps( Ingredients( tbl )[2] );
-	info:= Ingredients( tbl )[3];
+	POW1:= ComputedPowerMaps( SpinSymIngredients( tbl )[1] );
+	POW2:= ComputedPowerMaps( SpinSymIngredients( tbl )[2] );
+	info:= SpinSymIngredients( tbl )[3];
 	k:= info.k;
 	l:= info.l;
 	 	
@@ -479,10 +479,10 @@ InstallGlobalFunction( SPINSYM_YNG_POWERMAPS,
   for p in Set( FactorsInt( Size( tbl ) ) ) do
   	
   	if p > k then 
-  		POW1[ p ]:= pprimepowermap( Irr( Ingredients( tbl )[1] ), p );
+  		POW1[ p ]:= pprimepowermap( Irr( SpinSymIngredients( tbl )[1] ), p );
   	fi;
   	if p > l then 
-  		POW2[ p ]:= pprimepowermap( Irr( Ingredients( tbl )[2] ), p );
+  		POW2[ p ]:= pprimepowermap( Irr( SpinSymIngredients( tbl )[2] ), p );
   	fi;
   		
     pow[ p ]:= [ ];
@@ -502,8 +502,8 @@ InstallGlobalFunction( SPINSYM_YNG_POWERMAPS,
 			fi;
 			j1:= powk[ info.pos1[ info.ORIGIN[i][1] ] ];
     	j2:= powl[ info.pos2[ info.ORIGIN[i][2] ] ];   	
-    	cl1:= ClassParameters( Ingredients( tbl )[1] )[j1];
-    	cl2:= ClassParameters( Ingredients( tbl )[2] )[j2];
+    	cl1:= ClassParameters( SpinSymIngredients( tbl )[1] )[j1];
+    	cl2:= ClassParameters( SpinSymIngredients( tbl )[2] )[j2];
    		if cl1[1] <> cl2[1] then
    			c:= -c;
    		fi;
@@ -520,10 +520,10 @@ InstallGlobalFunction( SPINSYM_YNG_POWERMAPS,
 				signs[i][1]:= SignPartition( cl1[2] );
 				signs[i][2]:= SignPartition( cl2[2] );
 				if signs[i][1] = -1 and signs[i][2] = 1 then
-					# find cl2 in 2.Alt(l) = Ingredients( tbl )[5]
-					pos:= res( cl2[2], ClassParameters( Ingredients( tbl )[5] ) );
-					pos:= PowerMap( Ingredients( tbl )[5], p )[ pos ];
-					d:= ClassParameters( Ingredients( tbl )[5] )[ pos ];
+					# find cl2 in 2.Alt(l) = SpinSymIngredients( tbl )[5]
+					pos:= res( cl2[2], ClassParameters( SpinSymIngredients( tbl )[5] ) );
+					pos:= PowerMap( SpinSymIngredients( tbl )[5], p )[ pos ];
+					d:= ClassParameters( SpinSymIngredients( tbl )[5] )[ pos ];
 					if d[1] = 2 then
 						c:= -c;
 					fi;
@@ -531,10 +531,10 @@ InstallGlobalFunction( SPINSYM_YNG_POWERMAPS,
 						c:= -c;
 					fi;
 				elif signs[i][1] = 1 and signs[i][2] = -1 then
-					# find cl1 in 2.Alt(k) = Ingredients( tbl )[4]
-					pos:= res( cl1[2], ClassParameters( Ingredients( tbl )[4] ) );
-					pos:= PowerMap( Ingredients( tbl )[4], p )[ pos ];
-					d:= ClassParameters( Ingredients( tbl )[4] )[ pos ];
+					# find cl1 in 2.Alt(k) = SpinSymIngredients( tbl )[4]
+					pos:= res( cl1[2], ClassParameters( SpinSymIngredients( tbl )[4] ) );
+					pos:= PowerMap( SpinSymIngredients( tbl )[4], p )[ pos ];
+					d:= ClassParameters( SpinSymIngredients( tbl )[4] )[ pos ];
 					if d[1] = 2 then
 						c:= -c;
 					fi;
@@ -579,7 +579,7 @@ InstallGlobalFunction( SPINSYM_YNG_TSR,
 	 	local info, IRR, CHPAR, 1ST, 2ND, pos1, pos2, pos, T,
 	 				i1, i2, phi, psi, chi, nr, j1, j2;
 	 		
-	 	info:= Ingredients( tbl )[3];
+	 	info:= SpinSymIngredients( tbl )[3];
 	
 		# irreducible characters and their parameters			
 		IRR:= [];
@@ -635,9 +635,9 @@ InstallGlobalFunction( SPINSYM_YNG_IND,
 				IRR, CHPAR, c, d, irr, 
 				i, j1, j2, j, pos;
 
-	AA:= Ingredients( tbl )[ 6 ];
-	AS:= Ingredients( tbl )[ 7 ];
-	SA:= Ingredients( tbl )[ 8 ];
+	AA:= SpinSymIngredients( tbl )[ 6 ];
+	AS:= SpinSymIngredients( tbl )[ 7 ];
+	SA:= SpinSymIngredients( tbl )[ 8 ];
 		
 	# fusion maps 
 	FUS:= SpinSymClassFusion2AAin2AS( 
@@ -661,7 +661,7 @@ InstallGlobalFunction( SPINSYM_YNG_IND,
 	FUS:= CompositionMaps( FUS, fus );
 	StoreFusion( AA, FUS, tbl );
 		
-	T:= Ingredients( AA )[ 3 ].T;
+	T:= SpinSymIngredients( AA )[ 3 ].T;
 	# now T[i] = [ true, true ]   means that T(chi)/AA = 1, i.e. T(chi)=AA
 	# now T[i] = [ true, false ]  means that T(chi)/AA = <t2>, i.e. T(chi)=AS
 	# now T[i] = [ false, true ]  means that T(chi)/AA = <t1>, i.e. T(chi)=SA
@@ -747,16 +747,16 @@ InstallGlobalFunction( SPINSYM_YNG_IRR, function( tbl )
 				CHPAR1, CHPAR2, R, NR1, NR2, 
 				p, ordtbl, AA, AS, SA;
 		
-	info:= Ingredients( tbl )[ 3 ];
+	info:= SpinSymIngredients( tbl )[ 3 ];
 	IRR:= [];
 	CHPAR:= [];
 	if not IsSubset( info.type, "spinonly" ) then
 			
 		# get all irreducible (Brauer) characters
-		IRR1:= Irr( Ingredients( tbl )[1] ){ [ 1 .. info.nr1 ] };
-		IRR2:= Irr( Ingredients( tbl )[2] ){ [ 1 .. info.nr2 ] };
-		CHPAR1:= CharacterParameters( Ingredients( tbl )[1] ){ [ 1 .. info.nr1 ] };
-		CHPAR2:= CharacterParameters( Ingredients( tbl )[2] ){ [ 1 .. info.nr2 ] };
+		IRR1:= Irr( SpinSymIngredients( tbl )[1] ){ [ 1 .. info.nr1 ] };
+		IRR2:= Irr( SpinSymIngredients( tbl )[2] ){ [ 1 .. info.nr2 ] };
+		CHPAR1:= CharacterParameters( SpinSymIngredients( tbl )[1] ){ [ 1 .. info.nr1 ] };
+		CHPAR2:= CharacterParameters( SpinSymIngredients( tbl )[2] ){ [ 1 .. info.nr2 ] };
 		R:= SPINSYM_YNG_TSR( tbl, IRR1, IRR2, CHPAR1, CHPAR2, 1, 1 );
 		Append( IRR, R.IRR );
 		Append( CHPAR, R.CHPAR );
@@ -767,12 +767,12 @@ InstallGlobalFunction( SPINSYM_YNG_IRR, function( tbl )
 	if info.type{[1,2]} <> "SS" then
 			
 		# construct spin-characters (for type AA, AS, or SA)
-		NR1:= NrConjugacyClasses( Ingredients( tbl )[1] );
-		NR2:= NrConjugacyClasses( Ingredients( tbl )[2] );
-		IRR1:= Irr( Ingredients( tbl )[1] ){ [ info.nr1 + 1 .. NR1 ] };
-		IRR2:= Irr( Ingredients( tbl )[2] ){ [ info.nr2 + 1 .. NR2 ] };
-  	CHPAR1:= CharacterParameters( Ingredients( tbl )[1] ){ [ info.nr1 + 1 .. NR1 ] };
-		CHPAR2:= CharacterParameters( Ingredients( tbl )[2] ){ [ info.nr2 + 1 .. NR2 ] };
+		NR1:= NrConjugacyClasses( SpinSymIngredients( tbl )[1] );
+		NR2:= NrConjugacyClasses( SpinSymIngredients( tbl )[2] );
+		IRR1:= Irr( SpinSymIngredients( tbl )[1] ){ [ info.nr1 + 1 .. NR1 ] };
+		IRR2:= Irr( SpinSymIngredients( tbl )[2] ){ [ info.nr2 + 1 .. NR2 ] };
+  	CHPAR1:= CharacterParameters( SpinSymIngredients( tbl )[1] ){ [ info.nr1 + 1 .. NR1 ] };
+		CHPAR2:= CharacterParameters( SpinSymIngredients( tbl )[2] ){ [ info.nr2 + 1 .. NR2 ] };
 		R:= SPINSYM_YNG_TSR( tbl, IRR1, IRR2, CHPAR1, CHPAR2, -1, 2 );
 		Append( IRR, R.IRR );
 		Append( CHPAR, R.CHPAR );
@@ -790,32 +790,32 @@ InstallGlobalFunction( SPINSYM_YNG_IRR, function( tbl )
 		if p = 0 then
 			AA:= SPINSYM_YNG_HEAD( info.k, info.l, "AA" );
 			AS:= SPINSYM_YNG_HEAD( info.k, info.l, "AS", 
-						Ingredients( AA )[1], 			# 2.Alt(k)
-						Ingredients( tbl )[2] );		# 2.Sym(l)
+						SpinSymIngredients( AA )[1], 			# 2.Alt(k)
+						SpinSymIngredients( tbl )[2] );		# 2.Sym(l)
 			SA:= SPINSYM_YNG_HEAD( info.k, info.l, "SA", 
-						Ingredients( tbl )[1], 			# 2.Sym(k)
-						Ingredients( AA )[2] );			# 2.Alt(l)
+						SpinSymIngredients( tbl )[1], 			# 2.Sym(k)
+						SpinSymIngredients( AA )[2] );			# 2.Alt(l)
 		else
 			
 			ordtbl:= OrdinaryCharacterTable( tbl );
-			AA:= SPINSYM_YNG_HEADREG( Ingredients( ordtbl )[ 6 ], p );
-			AS:= SPINSYM_YNG_HEADREG( Ingredients( ordtbl )[ 7 ], p );
-			SA:= SPINSYM_YNG_HEADREG( Ingredients( ordtbl )[ 8 ], p );
+			AA:= SPINSYM_YNG_HEADREG( SpinSymIngredients( ordtbl )[ 6 ], p );
+			AS:= SPINSYM_YNG_HEADREG( SpinSymIngredients( ordtbl )[ 7 ], p );
+			SA:= SPINSYM_YNG_HEADREG( SpinSymIngredients( ordtbl )[ 8 ], p );
 			
 		fi;
 			
-		Ingredients( AA )[ 3 ].type:= "AAspinonly";
+		SpinSymIngredients( AA )[ 3 ].type:= "AAspinonly";
 		SPINSYM_YNG_IRR( AA );
 				
-		Ingredients( AS )[ 3 ].type:= "ASspinonly";
+		SpinSymIngredients( AS )[ 3 ].type:= "ASspinonly";
 		SPINSYM_YNG_IRR( AS );
 
-		Ingredients( SA )[ 3 ].type:= "SAspinonly";
+		SpinSymIngredients( SA )[ 3 ].type:= "SAspinonly";
 		SPINSYM_YNG_IRR( SA );
 
-		Ingredients( tbl )[ 6 ]:= AA;
-		Ingredients( tbl )[ 7 ]:= AS;
-		Ingredients( tbl )[ 8 ]:= SA;
+		SpinSymIngredients( tbl )[ 6 ]:= AA;
+		SpinSymIngredients( tbl )[ 7 ]:= AS;
+		SpinSymIngredients( tbl )[ 8 ]:= SA;
 	
 		# now we are ready to construct the spin chars via 
 		# inducing up to SS from AA (possibly along AS or SA)
@@ -978,12 +978,12 @@ InstallGlobalFunction(
 				modtbl:= CharacterTableRegular( ordtbl, p );
 				SetClassParameters( modtbl, 
 					 ClassParameters( ordtbl ){ GetFusionMap( modtbl, ordtbl ) } );				
-				##ct1:= Ingredients( ordtbl )[ 1 ] mod p;
-				##ct2:= Ingredients( ordtbl )[ 2 ] mod p;
+				##ct1:= SpinSymIngredients( ordtbl )[ 1 ] mod p;
+				##ct2:= SpinSymIngredients( ordtbl )[ 2 ] mod p;
 				## remove the following two lines and uncomment the previous ones
 				## as soon as the hack SPINSYM_BrauerTableFromLibrary disappears
-				ct1:= SPINSYM_BrauerTableFromLibrary( Ingredients( ordtbl )[ 1 ], p);
-				ct2:= SPINSYM_BrauerTableFromLibrary( Ingredients( ordtbl )[ 2 ], p);
+				ct1:= SPINSYM_BrauerTableFromLibrary( SpinSymIngredients( ordtbl )[ 1 ], p);
+				ct2:= SPINSYM_BrauerTableFromLibrary( SpinSymIngredients( ordtbl )[ 2 ], p);
 				
 				if ct1 = fail or ct2 = fail then
 					return fail;
@@ -998,14 +998,14 @@ InstallGlobalFunction(
 			fi;
 			
 			# for p > 2 use the SpinSym construction					
-			if not HasIngredients( ordtbl ) then
+			if not HasSpinSymIngredients( ordtbl ) then
 				Error( "missing ingredients of <ordtbl>; " ); 
 			fi;
 		
 			modtbl:= SPINSYM_YNG_HEADREG( ordtbl, p );
 			SPINSYM_YNG_IRR( modtbl );
 			
-			Unbind( modtbl!.Ingredients );
+			Unbind( modtbl!.SpinSymIngredients );
 			
 			return modtbl;
 		end );
