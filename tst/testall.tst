@@ -1,11 +1,8 @@
 #############################################################################
 ##
-##  testall.g                 The SpinSym Package                 Lukas Maas
+##  testall.tst                The SpinSym Package                 Lukas Maas
 ##
 #############################################################################
-
-## run these tests (which are just the examples given in the manual) by
-## Test( "<?dir?>/testall.g" );
 
 gap> LoadPackage( "SpinSym", false );
 true
@@ -142,7 +139,7 @@ gap> ct2:= CharacterTable("Sym(5)") mod 2;;
 gap> Irr( ct1*ct2 ) = Irr( ct );
 true
 gap> 
-gap> STOP_TEST( "testall.g", 1 );
+gap> STOP_TEST( "testall.tst", 1 );
 SpinSym Doc Examples
 GAP4stones: 0
 gap> SizeScreen( save );;

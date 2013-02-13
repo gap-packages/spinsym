@@ -678,7 +678,7 @@ tables of
 		<Alt Only="LaTeX"><M>\tilde{A}_k\circ\tilde{S}_l</M></Alt><Alt Not="LaTeX"><M>2.(Alt(k){\times}Sym(l))</M></Alt> 
 (see <Cite Key="Maas2011" Where="Section 5.2"/>). 
 These `ingredients' are computed and then stored in the 
-attribute <C>Ingredients</C> so they can be accessed during 
+attribute <C>SpinSymIngredients</C> so they can be accessed during 
 the construction (and for the construction of a relative 
 Brauer table too, see 
 <Ref Func="SpinSymBrauerTableOfMaximalYoungSubgroup"/>). <P/>

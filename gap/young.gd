@@ -7,18 +7,18 @@
 ##
 #############################################################################
 
-## Attribute: Ingredients of a (partial) character table
-## The attribute 'Ingredients' of a table <tbl> is used to store some
-## information used in the construction of <tbl> or related tables, 
+## Attribute: SpinSymIngredients of a (partial) SpinSym character table
+## The attribute 'SpinSymIngredients' of a table <tbl> is used to store 
+## some information used in the construction of <tbl> or related tables, 
 ## e.g. (possibly partial) character tables and a record.
 
 ## More precisely: if the type of <tbl> is "AA", "AS", or "SA", then
-## Ingredients( <tbl> ) = [ CT1, CT2, inforec ] where CT1 and CT2 are
+## SpinSymIngredients( <tbl> ) = [ CT1, CT2, inforec ] where CT1 and CT2 are
 ## the character tables of 
 ## 2.Alt(k) and 2.Alt(l), or 
 ## 2.Alt(k) and 2.Sym(l), or
 ## 2.Sym(k) and 2.Alt(l), respectively.
-## If the type of <tbl> is "SS", then Ingredients( <tbl> ) = 
+## If the type of <tbl> is "SS", then SpinSymIngredients( <tbl> ) = 
 ## [ 2.Sym(k), 2.Sym(l), inforec, 2.Alt(k), 2.Alt(l), AA, AS, SA ] 
 ## where the group names and types refer to the appropriate tables.
 
@@ -26,7 +26,7 @@
 ## the underlying ordinary table are used. After <modtbl> has been 
 ## constructed its ingredients are removed.
 
-DeclareAttribute( "Ingredients", IsNearlyCharacterTable, "mutable" );
+DeclareAttribute( "SpinSymIngredients", IsNearlyCharacterTable, "mutable" );
 
 ## internal functions
 DeclareGlobalFunction( "SPINSYM_YNG_OrderOfProductOfDisjointSchurLifts" );
