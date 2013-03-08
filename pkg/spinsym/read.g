@@ -17,8 +17,6 @@ ReadPackage( "spinsym", "gap/young.gi" );
 dirs:= [ Directory( Concatenation( 
 	       PackageInfo("spinsym")[1].InstallationPath, "/symdata" ) ) ];
 
-LoadPackage( "ctbllib" );
-
 for n in [ 2 .. 19 ] do
  ordfile:= Filename( dirs[1], Concatenation(  "ctoa", String( n ) ) );
  NotifyCharacterTable( Concatenation( "Alt(", String( n ), ")" ),

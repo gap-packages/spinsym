@@ -7,10 +7,12 @@ spinsym/PackageInfo.g
 spinsym/COPYING
 spinsym/gap/fus.gi
 spinsym/gap/fus.gd
+spinsym/gap/._fus.gd
 spinsym/gap/young.gd
 spinsym/gap/mtx.gd
 spinsym/gap/mtx.gi
 spinsym/gap/young.gi
+spinsym/gap/._fus.gi
 spinsym/doc/chapBib.txt
 spinsym/doc/chapBib.html
 spinsym/doc/chapInd.html
