@@ -516,17 +516,14 @@ end );
 
 ## OUTPUT ... the fusion map fus from SOURCE to DEST as returned by  
 ## .......... SpinSymClassFusionSOURCEinDEST
-## .......... the fusion map is sinred only if there is no fusion map from 
-## .......... SOURCE to DEST stored already 
+## .......... the fusion map is stored only if there is no fusion map from 
+## .......... SOURCE to DEST stored yet 
 
 InstallGlobalFunction( SpinSymClassFusion, function( X, Y )
   local idX, idY, S, A, type, cclX, cclY, fus, storedfus;
 	
   idX:= Identifier( X );
   idY:= Identifier( Y );
-  if not IsSubset( idX, "2." ) and IsSubset( idY, "2." ) then 
-    Error("wrong table identifiers"); 
-  fi;
 
   S:= Filtered( idX, x-> x = 'S' );
   A:= Filtered( idX, x-> x = 'A' );
@@ -586,9 +583,6 @@ InstallGlobalFunction( SpinSymClassFusion, function( X, Y )
       Print( "#I SpinSymClassFusion: WARNING\n", 
       "#I ................... a different fusion map from ", idX, " to ", 
       idY, " is stored already\n" ); 
-    else
-      Print( "#I SpinSymClassFusion: the same fusion map from ", 
-             idX, " to ", idY, " is stored already\n" ); 
     fi;	
   elif not fail in fus then
     StoreFusion( X, fus, Y );
@@ -600,3 +594,4 @@ InstallGlobalFunction( SpinSymClassFusion, function( X, Y )
   return fus;
  
 end );
+
