@@ -11,20 +11,22 @@
 \contentsline {subsection}{\numberline {2.3.1}\leavevmode {\color {Chapter }SpinSymStandardRepresentative}}{10}{subsection.2.3.1}
 \contentsline {subsection}{\numberline {2.3.2}\leavevmode {\color {Chapter }SpinSymStandardRepresentativeImage}}{11}{subsection.2.3.2}
 \contentsline {subsection}{\numberline {2.3.3}\leavevmode {\color {Chapter }SpinSymPreimage}}{11}{subsection.2.3.3}
-\contentsline {section}{\numberline {2.4}\leavevmode {\color {Chapter }Young subgroups}}{12}{section.2.4}
-\contentsline {subsection}{\numberline {2.4.1}\leavevmode {\color {Chapter }SpinSymCharacterTableOfMaximalYoungSubgroup}}{12}{subsection.2.4.1}
+\contentsline {subsection}{\numberline {2.3.4}\leavevmode {\color {Chapter }SpinSymBrauerCharacter}}{12}{subsection.2.3.4}
+\contentsline {subsection}{\numberline {2.3.5}\leavevmode {\color {Chapter }SpinSymBasicCharacter}}{12}{subsection.2.3.5}
+\contentsline {section}{\numberline {2.4}\leavevmode {\color {Chapter }Young subgroups}}{13}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}\leavevmode {\color {Chapter }SpinSymCharacterTableOfMaximalYoungSubgroup}}{13}{subsection.2.4.1}
 \contentsline {subsection}{\numberline {2.4.2}\leavevmode {\color {Chapter }SpinSymBrauerTableOfMaximalYoungSubgroup}}{13}{subsection.2.4.2}
-\contentsline {section}{\numberline {2.5}\leavevmode {\color {Chapter }Class Fusions}}{13}{section.2.5}
-\contentsline {subsection}{\numberline {2.5.1}\leavevmode {\color {Chapter }SpinSymClassFusion}}{13}{subsection.2.5.1}
-\contentsline {subsection}{\numberline {2.5.2}\leavevmode {\color {Chapter }SpinSymClassFusion2Ain2S}}{14}{subsection.2.5.2}
-\contentsline {subsection}{\numberline {2.5.3}\leavevmode {\color {Chapter }SpinSymClassFusion2Sin2S}}{14}{subsection.2.5.3}
-\contentsline {subsection}{\numberline {2.5.4}\leavevmode {\color {Chapter }SpinSymClassFusion2Ain2A}}{14}{subsection.2.5.4}
-\contentsline {subsection}{\numberline {2.5.5}\leavevmode {\color {Chapter }SpinSymClassFusion2Sin2A}}{14}{subsection.2.5.5}
-\contentsline {subsection}{\numberline {2.5.6}\leavevmode {\color {Chapter }SpinSymClassFusion2SSin2S}}{15}{subsection.2.5.6}
-\contentsline {subsection}{\numberline {2.5.7}\leavevmode {\color {Chapter }SpinSymClassFusion2SAin2SS}}{15}{subsection.2.5.7}
-\contentsline {subsection}{\numberline {2.5.8}\leavevmode {\color {Chapter }SpinSymClassFusion2ASin2SS}}{15}{subsection.2.5.8}
-\contentsline {subsection}{\numberline {2.5.9}\leavevmode {\color {Chapter }SpinSymClassFusion2AAin2SA}}{15}{subsection.2.5.9}
-\contentsline {subsection}{\numberline {2.5.10}\leavevmode {\color {Chapter }SpinSymClassFusion2AAin2AS}}{15}{subsection.2.5.10}
-\contentsline {subsection}{\numberline {2.5.11}\leavevmode {\color {Chapter }SpinSymClassFusion2AAin2A}}{15}{subsection.2.5.11}
-\contentsline {chapter}{References}{16}{chapter*.3}
-\contentsline {chapter}{Index}{17}{section*.4}
+\contentsline {section}{\numberline {2.5}\leavevmode {\color {Chapter }Class Fusions}}{14}{section.2.5}
+\contentsline {subsection}{\numberline {2.5.1}\leavevmode {\color {Chapter }SpinSymClassFusion}}{14}{subsection.2.5.1}
+\contentsline {subsection}{\numberline {2.5.2}\leavevmode {\color {Chapter }SpinSymClassFusion2Ain2S}}{15}{subsection.2.5.2}
+\contentsline {subsection}{\numberline {2.5.3}\leavevmode {\color {Chapter }SpinSymClassFusion2Sin2S}}{15}{subsection.2.5.3}
+\contentsline {subsection}{\numberline {2.5.4}\leavevmode {\color {Chapter }SpinSymClassFusion2Ain2A}}{15}{subsection.2.5.4}
+\contentsline {subsection}{\numberline {2.5.5}\leavevmode {\color {Chapter }SpinSymClassFusion2Sin2A}}{16}{subsection.2.5.5}
+\contentsline {subsection}{\numberline {2.5.6}\leavevmode {\color {Chapter }SpinSymClassFusion2SSin2S}}{16}{subsection.2.5.6}
+\contentsline {subsection}{\numberline {2.5.7}\leavevmode {\color {Chapter }SpinSymClassFusion2SAin2SS}}{16}{subsection.2.5.7}
+\contentsline {subsection}{\numberline {2.5.8}\leavevmode {\color {Chapter }SpinSymClassFusion2ASin2SS}}{16}{subsection.2.5.8}
+\contentsline {subsection}{\numberline {2.5.9}\leavevmode {\color {Chapter }SpinSymClassFusion2AAin2SA}}{16}{subsection.2.5.9}
+\contentsline {subsection}{\numberline {2.5.10}\leavevmode {\color {Chapter }SpinSymClassFusion2AAin2AS}}{17}{subsection.2.5.10}
+\contentsline {subsection}{\numberline {2.5.11}\leavevmode {\color {Chapter }SpinSymClassFusion2AAin2A}}{17}{subsection.2.5.11}
+\contentsline {chapter}{References}{18}{chapter*.3}
+\contentsline {chapter}{Index}{19}{section*.4}

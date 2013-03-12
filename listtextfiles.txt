@@ -17,6 +17,7 @@ spinsym/doc/chapBib.txt
 spinsym/doc/chapBib.html
 spinsym/doc/chapInd.html
 spinsym/doc/chap2.html
+spinsym/doc/._chap2.xml
 spinsym/doc/chapBib_mj.html
 spinsym/doc/chap0_mj.html
 spinsym/doc/lefttoc.css

@@ -160,7 +160,7 @@ or
 <Alt Only="LaTeX"><M>A_n</M></Alt><Alt Not="LaTeX"><M>Alt(n)</M></Alt>, 
 respectively, whose label is given to <M>\chi</M>. 
 Otherwise, if <M>\chi</M> is a spin character, that is 
-<M>\chi(z)=-\chi(1)</M>, then its label is as follows. <P />
+<M>\chi(z)=-\chi(1)</M>, then its label is described next. <P />
 The set of ordinary spin characters of 
 <Alt Not="LaTeX"><M>2.Sym(n)</M></Alt>
 <Alt Only="LaTeX"><M>\tilde{S}_n</M></Alt> 
@@ -234,9 +234,9 @@ Again, the labels for the <M>p</M>-modular spin characters of
 <Alt Not="LaTeX"><M>Alt(n)</M></Alt> 
 follow from the labels of 
 <Alt Only="LaTeX"><M>S_n</M></Alt><Alt Not="LaTeX"><M>Sym(n)</M></Alt>.
-However, in comparison to subsection 
+However, comparing subsection 
 <Ref Subsect="subsec:characterparameters:ordinary"/>, 
-the format is slightly different. <P/>
+their format is slightly different. <P/>
 If <M>\chi</M> and <M>\xi</M> are distinct 
 <M>p</M>-modular characters of 
 <Alt Only="LaTeX"><M>S_n</M></Alt>
@@ -469,18 +469,19 @@ with parameter
 <ManSection>
 <Func Name="SpinSymStandardRepresentative" Arg="c,rep"
 Comm="computes the standard representative of type c under 
-			the representation rep"/>
-<Returns>the image of the standard representative of type <A>c</A> under the 
+			a given representation"/>
+<Returns>the image of the standard representative of type <A>c</A> under 
+a given
 <Alt Only="LaTeX"><M>\tilde{S}_n</M></Alt>
-<Alt Not="LaTeX"><M>2.Sym(n)</M></Alt>-representation <A>rep</A>.
+<Alt Not="LaTeX"><M>2.Sym(n)</M></Alt>-representation.
 </Returns>
 <Description>
-Given the second entry <A>c</A> of a class parameter of
+Expecting the second entry of a class parameter of
 <Alt Not="LaTeX"><M>2.Sym(n)</M></Alt>
 <Alt Only="LaTeX"><M>\tilde{S}_n</M></Alt> 
 or 
 <Alt Not="LaTeX"><M>2.Alt(n)</M></Alt>
-<Alt Only="LaTeX"><M>\tilde{A}_n</M></Alt>,
+<Alt Only="LaTeX"><M>\tilde{A}_n</M></Alt>, say <A>c</A>,
 the standard representative of type <A>c</A> under a given 
 representation of 
 <Alt Not="LaTeX"><M>2.Sym(n)</M></Alt>
@@ -500,7 +501,7 @@ representation <M>R</M> of
 
 <Log>
 <![CDATA[
-gap> ct:= CharacterTable( "2.Sym(15)" ) mod 5;;
+gap> ct:= CharacterTable("2.Sym(15)") mod 5;;
 gap> cl:= ClassParameters(ct)[99];
 [ 1, [ 7, 4, 3, 1 ] ]
 gap> c:= cl[2];;
@@ -546,36 +547,39 @@ By default, <C>j=1</C>.
 
 <Log>
 <![CDATA[
-gap> s1:= SpinSymStandardRepresentativeImage([ 7, 4, 3, 1 ]);         
+gap> s1:= SpinSymStandardRepresentativeImage([7,4,3,1]);         
 (1,7,6,5,4,3,2)(8,11,10,9)(12,14,13)
-gap> s2:= SpinSymStandardRepresentativeImage([ [ 7, 4, 3, 1 ], '-' ]);
+gap> s2:= SpinSymStandardRepresentativeImage([[7,4,3,1],'-']);
 (1,2,7,6,5,4,3)(8,11,10,9)(12,14,13)
 gap> s2 = s1^(1,2);
 true
-gap> SpinSymStandardRepresentativeImage([ 7, 4, 3, 1 ],3);       
+gap> SpinSymStandardRepresentativeImage([7,4,3,1],3);       
 (3,9,8,7,6,5,4)(10,13,12,11)(14,16,15)
 ]]>
 </Log>
 
 <ManSection>
 <Func Name="SpinSymPreimage" Arg="c,rep"
-Comm="computes a (standard) lift of c under the representation rep"/>
+Comm="computes a (standard) lift of c under a given representation"/>
 <Returns>a (standard) lift of the element <A>c</A> of 
 <Alt Not="LaTeX"><M>Sym(n)</M></Alt>
 <Alt Only="LaTeX"><M>S_n</M></Alt> in 
 <Alt Not="LaTeX"><M>2.Sym(n)</M></Alt>
 <Alt Only="LaTeX"><M>\tilde{S}_n</M></Alt> 
-under the
+under a given
 <Alt Only="LaTeX"><M>\tilde{S}_n</M></Alt>
-<Alt Not="LaTeX"><M>2.Sym(n)</M></Alt>-representation <A>rep</A>.
+<Alt Not="LaTeX"><M>2.Sym(n)</M></Alt>-representation.
 </Returns>
 <Description>See <Cite Key="Maas2011" Where="(5.1.12)"/> for the 
 definition of the lift that is returned by this function.
 The permutation <A>c</A> is written as a product of simple 
 transpositions <M>(i,i+1)</M>, then these are replaced by 
-the images of their canonical lifts <M>t_i</M> under the 
-matrix representation <A>rep</A> (see the beginning of Chapter 
-<Ref Chap="chap1"/> for the definition of <M>t_i</M>). <P/>
+the images of their canonical lifts <M>t_i</M> under a given
+representation <M>R</M> of <Alt Only="LaTeX"><M>\tilde{S}_n</M></Alt>
+<Alt Not="LaTeX"><M>2.Sym(n)</M></Alt> (recall the beginning of Chapter 
+<Ref Chap="chap1"/> for the definition of <M>t_i</M>). 
+Here <A>rep</A> is assumed to be the list 
+<M>[t_1^R,t_2^R,\ldots,t_{n-1}^R]</M>. <P/>
 Note that a more efficient computation may be achieved by 
 computing and storing a list of all necessary transpositions once and for all, 
 before lifting (many) elements (under a possibly large representation).
@@ -585,15 +589,85 @@ before lifting (many) elements (under a possibly large representation).
 <Log>
 <![CDATA[
 gap> rep:= BasicSpinRepresentationOfSymmetricGroup(15);;
-gap> c:= SpinSymStandardRepresentativeImage( [5,4,3,2,1] );
+gap> c:= SpinSymStandardRepresentativeImage([5,4,3,2,1]);
 (1,5,4,3,2)(6,9,8,7)(10,12,11)(13,14)
-gap> C:= SpinSymPreimage( c, rep );
+gap> C:= SpinSymPreimage(c,rep);
 < immutable compressed matrix 64x64 over GF(9) >
-gap> C = SpinSymStandardRepresentative( [5,4,3,2,1], rep );
+gap> C = SpinSymStandardRepresentative([5,4,3,2,1],rep);
 true
 ]]>
 </Log>
-</Section>
+
+<ManSection>
+<Func Name="SpinSymBrauerCharacter" Arg="ccl, ords, rep"
+Comm="computes the Brauer character of a given representation"/>
+<Returns>the Brauer character afforded by a given representation 
+of <Alt Not="LaTeX"><M>2.Sym(n)</M></Alt>
+<Alt Only="LaTeX"><M>\tilde{S}_n</M></Alt>. 
+</Returns>
+<Description>
+This function is based on a simplified computation of the &GAP; attribute 
+<C>BrauerCharacterValue(mat)</C> for an invertible matrix <C>mat</C> 
+over a finite field whose characteristic is coprime to the order of
+<C>mat</C>. <P/>
+The arguments <A>ccl</A> and <A>ords</A> are expected to 
+be the values of the attributes <C>ClassParameters(modtbl)</C> and 
+<C>OrdersClassRepresentatives(modtbl)</C> of a (possibly incomplete)  
+<M>p</M>-modular SpinSym table <C>modtbl</C> of 
+<Alt Not="LaTeX"><M>2.Sym(n)</M></Alt>
+<Alt Only="LaTeX"><M>\tilde{S}_n</M></Alt>.<P/> 
+The argument <A>rep</A> is assumed to be a list 
+<M>[t_1^R,t_2^R,\ldots,t_{n-1}^R]</M>
+given by the images of the generators 
+<M>t_1,\ldots,t_{n-1}</M> of 
+<Alt Not="LaTeX"><M>2.Sym(n)</M></Alt>
+<Alt Only="LaTeX"><M>\tilde{S}_n</M></Alt> 
+under a (not necessarily faithful)
+<Alt Not="LaTeX"><M>2.Sym(n)</M></Alt>
+<Alt Only="LaTeX"><M>\tilde{S}_n</M></Alt>-representation <M>R</M>.
+</Description>
+</ManSection>
+
+<Log>
+<![CDATA[
+gap> ct:= CharacterTable("DoubleCoverSymmetric",15);;
+gap> bt:= CharacterTableRegular(ct,5);;
+gap> fus:= GetFusionMap(bt,ct);;
+gap> ccl:= ClassParameters(ct){fus};;
+gap> ords:= OrdersClassRepresentatives(bt);;
+gap> rep:= BasicSpinRepresentationOfSymmetricGroup(15,5);;
+gap> phi:= SpinSymBrauerCharacter(ccl,ords,rep);;
+gap> phi in Irr(ct mod 5);
+true
+]]>
+</Log>
+
+<ManSection>
+<Func Name="SpinSymBasicCharacter" Arg="modtbl"
+Comm="computes a basic spin character of modtbl"/>
+<Returns>a <M>p</M>-modular basic spin character of the 
+(possibly incomplete) <M>p</M>-modular SpinSym table  <A>modtbl</A> of 
+<Alt Not="LaTeX"><M>2.Sym(n)</M></Alt>
+<Alt Only="LaTeX"><M>\tilde{S}_n</M></Alt>.
+</Returns>
+<Description>
+This is just a shortcut for constructing a basic spin representation of 
+<Alt Not="LaTeX"><M>2.Sym(n)</M></Alt>
+<Alt Only="LaTeX"><M>\tilde{S}_n</M></Alt> in characteristic <M>p</M> 
+and computing its Brauer character by calling 
+<Ref Func="SpinSymBrauerCharacter"/> afterwards.
+</Description>
+</ManSection>
+
+<Log>
+<![CDATA[ 
+gap> SetClassParameters(bt,ccl);
+gap> SpinSymBasicCharacter(bt) = phi;
+true
+]]>
+</Log>
+
+</Section> 
 
 <Section Label="sec:youngsubgroups">
 <Heading>Young subgroups</Heading>
@@ -758,12 +832,11 @@ gap> SpinSymBrauerTableOfMaximalYoungSubgroup(2AA,3);
 BrauerTable( "2.(Alt(8)xAlt(5))", 3 )
 gap> 2SS mod 5;
 BrauerTable( "2.(Sym(8)xSym(5))", 5 )
-gap>
 gap> ct:= 2SS mod 2;  
 BrauerTable( "2.(Sym(8)xSym(5))", 2 )
 gap> ct1:= CharacterTable("Sym(8)") mod 2;;
 gap> ct2:= CharacterTable("Sym(5)") mod 2;;     
-gap> Irr( ct1*ct2 ) = Irr( ct );
+gap> Irr(ct1*ct2) = Irr(ct);
 true
 ]]>
 </Log>
@@ -855,6 +928,19 @@ the fusion map <C>fus</C>. If
 </Description>
 </ManSection>
 
+<Log>
+<![CDATA[
+gap> ctD:= CharacterTable("2.Sym(18)");;                                  
+gap> ctS:= SpinSymCharacterTableOfMaximalYoungSubgroup(10,8,"Symmetric");;
+gap> GetFusionMap(ctS,ctD);
+fail
+gap> SpinSymClassFusion(ctS,ctD);;
+#I SpinSymClassFusion: stored fusion map from 2.(Sym(10)xSym(8)) to 2.Sym(18)
+gap> GetFusionMap(ctS,ctD) <> fail;
+true
+]]>
+</Log>
+
 <ManSection>
 <Func Name="SpinSymClassFusion2Ain2S" Arg="cclSource, cclDest"
 Comm="computes the class fusion between the SpinSym tables Source and Dest"/>
@@ -897,6 +983,17 @@ respectively, a corresponding class fusion map is determined.
 See <Cite Key="Maas2011" Where="(5.4.2)"/>.
 </Description>
 </ManSection>
+
+<Log>
+<![CDATA[
+gap> ctD:= CharacterTable("2.Sym(18)");;
+gap> ctS:= CharacterTable("2.Sym(6)");;
+gap> cclD:= ClassParameters(ctD);;
+gap> cclS:= ClassParameters(ctS);;
+gap> fus:= SpinSymClassFusion2Sin2S(cclS,cclD);;
+gap> StoreFusion(ctS,fus,ctD);
+]]>
+</Log>
 
 <ManSection>
 <Func Name="SpinSymClassFusion2Ain2A" Arg="cclSource, cclDest"
@@ -969,6 +1066,17 @@ a corresponding class fusion map is determined by means of
 <Cite Key="Maas2011" Where="(5.1.6)"/>.
 </Description>
 </ManSection>
+
+<Log>
+<![CDATA[
+gap> ctD:= CharacterTable("2.Sym(18)");;                                  
+gap> ctS:= SpinSymCharacterTableOfMaximalYoungSubgroup(10,8,"Symmetric");;
+gap> cclD:= ClassParameters(ctD);;
+gap> cclS:= ClassParameters(ctS);;
+gap> fus:= SpinSymClassFusion2SSin2S(cclS,cclD);;
+gap> StoreFusion(ctS,fus,ctD);
+]]>
+</Log>
 
 <ManSection>
 <Func Name="SpinSymClassFusion2SAin2SS" Arg="cclSource,cclDest"

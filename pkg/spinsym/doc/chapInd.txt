@@ -3,6 +3,8 @@
   [1XIndex[101X
   
   SpinSym package  .
+  [2XSpinSymBasicCharacter[102X  2.3-5
+  [2XSpinSymBrauerCharacter[102X  2.3-4
   [2XSpinSymBrauerTableOfMaximalYoungSubgroup[102X  2.4-2
   [2XSpinSymCharacterTableOfMaximalYoungSubgroup[102X  2.4-1
   [2XSpinSymClassFusion[102X  2.5-1

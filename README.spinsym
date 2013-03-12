@@ -16,13 +16,13 @@ The SpinSym package is free software:
 
 To install the newest version of this package download the archive file
 
-    spinsym-1.4.tar.gz	
+    spinsym-1.5.tar.gz	
 
 and unpack it inside the `pkg' subdirectory of your GAP4 installation, 
 e.g. using 
 
-    gunzip spinsym-1.4.tar.gz;
-    tar xvf spinsym-1.4.tar;
+    gunzip spinsym-1.5.tar.gz;
+    tar xvf spinsym-1.5.tar;
 
 It creates a subdirectory called `spinsym'.
 

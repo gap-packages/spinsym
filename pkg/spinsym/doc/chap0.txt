@@ -6,7 +6,7 @@
                      [1XBrauer tables of spin-symmetric groups[101X
   
   
-                               Version 1.4 (2013)
+                               Version 1.5 (2013)
   
   
   
@@ -53,6 +53,8 @@
       2.3-1 SpinSymStandardRepresentative
       2.3-2 SpinSymStandardRepresentativeImage
       2.3-3 SpinSymPreimage
+      2.3-4 SpinSymBrauerCharacter
+      2.3-5 SpinSymBasicCharacter
     2.4 [33X[0;0YYoung subgroups[133X
       2.4-1 SpinSymCharacterTableOfMaximalYoungSubgroup
       2.4-2 SpinSymBrauerTableOfMaximalYoungSubgroup
