@@ -87,9 +87,10 @@ end );
 
 ## SpinSymBrauerCharacter( <ccl>, <ords>, <rep> ) 
 ## INPUT .... the list of class parameters <ccl> and the list of orders <ords>
-## .......... of a modular SpinSym table of 2.Sym(n), and a representation <rep> 
-## .......... of 2.Sym(n)
-## OUTPUT ... the Brauer character afforded by <rep>
+## .......... of a modular SpinSym table of 2.Sym(n), and a list <rep> of   
+## .......... images [t_1^R,...,t_(n-1)^R] of the generators of 2.Sym(n) under
+## .......... a representation R of 2.Sym(n)
+## OUTPUT ... the Brauer character afforded by R
 
 InstallGlobalFunction( SpinSymBrauerCharacter, 
 	function( ccl, ords, rep )
@@ -117,15 +118,14 @@ InstallGlobalFunction( SpinSymBrauerCharacter,
             nullity := nullity / (Length( f ) - 1);
             Assert( 1, IsInt( nullity ), 
              "degree of <f> must divide <nullity>" );
-            value := value + nullity * pair[2];
+             value := value + nullity * pair[2];
         fi;
     	od;
     	return value;
 		end;
 
-		pos1:= Filtered( [1 .. Length( ccl ) ], i-> ccl[i][1] = 1 );
-		phi:= [];
-		
+    pos1:= Filtered( [1 .. Length( ccl ) ], i-> ccl[i][1] = 1 );
+    phi:= [];
 		for i in pos1 do
 			t:= SpinSymStandardRepresentative( ccl[i][2], rep );
 			phi[i]:= brauercharactervalue( t, ords[i] );
@@ -139,7 +139,7 @@ InstallGlobalFunction( SpinSymBrauerCharacter,
 end );
 
 
-## SpinSymBasicCharacter( <modtbl>, <p> ) 
+## SpinSymBasicCharacter( <modtbl> ) 
 ## INPUT .... the head <modtbl> of a regular character table of 2.Sym(n) 
 ## OUTPUT ... a <p>-modular basic spin character of <modtbl> 
 
