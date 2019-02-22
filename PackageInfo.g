@@ -10,10 +10,6 @@ Subtitle := "Brauer tables of spin-symmetric groups",
 Version := "1.5",
 Date := "01/02/2013",
 
-ArchiveURL :=
-          "http://www.uni-due.de/~s400304/spinsym/pkg/spinsym-1.5",
-ArchiveFormats := ".tar.gz",
-
 Persons := [
     rec(
   	  LastName      := "Maas",
@@ -36,17 +32,23 @@ Status := "deposited",
 # AcceptDate := "08/1999",
 #AcceptDate := "",
 
-README_URL :=
-  "http://www.uni-due.de/~s400304/spinsym/README",
-PackageInfoURL :=
-  "http://www.uni-due.de/~s400304/spinsym/PackageInfo.g",
+PackageWWWHome  := "https://gap-packages.github.io/spinsym/",
+README_URL      := Concatenation( ~.PackageWWWHome, "README.md" ),
+PackageInfoURL  := Concatenation( ~.PackageWWWHome, "PackageInfo.g" ),
+SourceRepository := rec(
+    Type := "git",
+    URL := "https://github.com/gap-packages/spinsym",
+),
+IssueTrackerURL := Concatenation( ~.SourceRepository.URL, "/issues" ),
+ArchiveURL      := Concatenation( ~.SourceRepository.URL,
+                                 "/releases/download/v", ~.Version,
+                                 "/spinsym-", ~.Version ),
+ArchiveFormats := ".tar.gz",
 
 AbstractHTML:= Concatenation(
 	[ "This package contains Brauer tables of Schur ",
 		"covers of symmetric and alternating groups, ",
 		"and provides some related functionalities." ]),
-
-PackageWWWHome := "http://www.uni-due.de/~s400304/spinsym/",
 
 PackageDoc := rec(
   BookName  := "SpinSym",
