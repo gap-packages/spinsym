@@ -70,12 +70,6 @@ Dependencies := rec(
 
 AvailabilityTest := ReturnTrue,
 
-BannerString := Concatenation(
-   "+-----------------------------------+\n",
-   "| SpinSym ", ~.Version, " (The SpinSym Package) |\n",
-   "| Try '?SpinSym package' for help.  |\n",
-   "+-----------------------------------+\n" ),
-
 TestFile := "tst/testall.tst",
 
 Keywords := [ "spin", "projective", "symmetric group", "alternating group",
