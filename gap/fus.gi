@@ -2,12 +2,12 @@
 ##
 ##  fus.gi                  The SpinSym Package                 Lukas Maas
 ##
-##  Class fusion maps between some subgroups of 2.Sym(n)                     
+##  Class fusion maps between some subgroups of 2.Sym(n)
 ##  Copyright (C) 2012 Lukas Maas
 ##
 #############################################################################
 
-## SOURCE ................ DEST ................ FUNCTION                  
+## SOURCE ................ DEST ................ FUNCTION
 ## 2.Alt(n) .............. 2.Sym(n) ............ SpinSymClassFusion2Ain2S
 ## 2.Sym(k) .............. 2.Sym(n) ............ SpinSymClassFusion2Sin2S
 ## 2.Alt(k) .............. 2.Alt(n) ............ SpinSymClassFusion2Ain2A
@@ -21,12 +21,12 @@
 
 ## for m=n,k,l we denote:
 ## Sym(m) .... Sm
-## Alt(m) .... Am	
+## Alt(m) .... Am
 ## 2.Sym(m) .. 2Sm
 ## 2.Alt(m) .. 2Sm
 
 #############################################################################
-## HELPER FUNCTIONS          
+## HELPER FUNCTIONS
 
 ## SPINSYM_IsAPD( <tau> ) ....... { All Parts Distinct }
 ## INPUT .... a list <tau> of integers
@@ -54,13 +54,13 @@ end );
 ## USER FUNCTIONS
 
 ## SpinSymClassFusion2Ain2S( <cclX>, <cclY> )
-## INPUT .... class parameters <cclX> of 2.Alt(n) 
-## .......... class parameters <cclY> of 2.Sym(n) 
+## INPUT .... class parameters <cclX> of 2.Alt(n)
+## .......... class parameters <cclY> of 2.Sym(n)
 ## see \cite{Maas2011}*{(5.4.1)}
 
 InstallGlobalFunction( SpinSymClassFusion2Ain2S, function( cclX, cclY )
   local fus, x, y, z;
-	
+
   fus:= [];
   for x in cclX do
     if '+' in x[2] or '-' in x[2] then
@@ -69,28 +69,28 @@ InstallGlobalFunction( SpinSymClassFusion2Ain2S, function( cclX, cclY )
       y:= x[2];
     fi;
     if SPINSYM_IsAPO( y ) and SPINSYM_IsAPD( y ) then
-      ## y in O(n)\cap D^+(n): 
-      ## +\- split classes of corresponding type (1\2) fuse in 2.Sym(n) 
+      ## y in O(n)\cap D^+(n):
+      ## +\- split classes of corresponding type (1\2) fuse in 2.Sym(n)
       z:= [ x[1], y ];
     elif SPINSYM_IsAPO(y) then
       ## y in O(n) but not in D^+(n):
       ## there is a class in 2.Sym(n) of corresponding type (1\2)
       z:= [ x[1], y ];
-    else 
+    else
       ## y in D^+(n) but not in O(n), or y is not in O(n)\cup D(n):
-      ## either the classes of type 1 and 2 fuse in 2.Sym(n), 
+      ## either the classes of type 1 and 2 fuse in 2.Sym(n),
       ## or there is only one class of type 1 in both 2.Alt(n) and 2.Sym(n)
       z:= [ 1, y ];
     fi;
     Add( fus, Position( cclY, z ) );
-  od;	
+  od;
   return fus;
 
 end );
 
 
 ## SpinSymClassFusion2Sin2S( <cclX>, <cclY> )
-## INPUT .... class parameters <cclX> of 2.Sym(k) 
+## INPUT .... class parameters <cclX> of 2.Sym(k)
 ## .......... class parameters <cclY> of 2.Sym(n) for k<n
 ## see \cite{Maas2011}*{(5.4.2)}
 
@@ -103,11 +103,11 @@ InstallGlobalFunction( SpinSymClassFusion2Sin2S, function( cclX, cclY )
   m:= ListWithIdenticalEntries( m, 1 );
   fus:= [ ];
   for x in cclX do
-    y:= Concatenation( x[2], m ); 
-    if SPINSYM_IsAPO( y ) then 
-      ## x is split in 2.Sym(k) and y is still split in 2.Sym(n) 
+    y:= Concatenation( x[2], m );
+    if SPINSYM_IsAPO( y ) then
+      ## x is split in 2.Sym(k) and y is still split in 2.Sym(n)
       z:= [ x[1], y ];
-    elif SPINSYM_IsAPD( y ) and SignPartition(y)=-1 then 
+    elif SPINSYM_IsAPD( y ) and SignPartition(y)=-1 then
       ## k=n-1 and no part of x equals 1:
       ## y is split in 2.Sym(n)
       z:= [ x[1], y ];
@@ -122,7 +122,7 @@ end );
 
 
 ## SpinSymClassFusion2Ain2A( <cclX>, <cclY> )
-## INPUT .... class parameters <cclX> of 2.Alt(k) 
+## INPUT .... class parameters <cclX> of 2.Alt(k)
 ## .......... class parameters <cclY> of 2.Alt(n) for k<n
 ## see \cite{Maas2011}*{(5.4.3)}
 
@@ -136,7 +136,7 @@ end );
 
 InstallGlobalFunction( SpinSymClassFusion2Ain2A, function( cclX, cclY )
   local filt, m, fus, x, y, z;
-  
+
   filt:= function(x)
 		return Flat(Filtered(x,y->not IsChar(y)));
 	end;
@@ -149,12 +149,12 @@ InstallGlobalFunction( SpinSymClassFusion2Ain2A, function( cclX, cclY )
     else
       y:= Concatenation( x[2], m );
     fi;
-    if SPINSYM_IsAPO( y ) and SPINSYM_IsAPD( y ) then	
+    if SPINSYM_IsAPO( y ) and SPINSYM_IsAPD( y ) then
       ## k = n-1 and 1 is not a part of x:
       ## then 1\2_x+- of 2.Alt(k) corresponds to 1\2_y+- in 2.Alt(n)
       z:= [ x[1], [ y, x[2][2] ] ];
-    elif SPINSYM_IsAPO( y ) or SPINSYM_IsAPD( y ) then 	
-      ## y is a 1\2 split class in 2.Alt(n); 
+    elif SPINSYM_IsAPO( y ) or SPINSYM_IsAPD( y ) then
+      ## y is a 1\2 split class in 2.Alt(n);
       ## the +\- split classes fuse in 2.Alt(n) in correspondence with their type 1\2
       z:= [ x[1], y ];
     else
@@ -168,13 +168,13 @@ end );
 
 
 ## SpinSymClassFusion2Sin2A( <cclX>, <cclY> )
-## INPUT .... class parameters <cclX> of 2.Sym(n-2) 
-## .......... class parameters <cclY> of 2.Alt(n) 
+## INPUT .... class parameters <cclX> of 2.Sym(n-2)
+## .......... class parameters <cclY> of 2.Alt(n)
 ## see \cite{Maas2011}*{(5.4.4)}
 
 InstallGlobalFunction( SpinSymClassFusion2Sin2A, function( cclX, cclY )
   local fus, x, y, z;
-	
+
   fus:= [];
   for x in cclX do
     y:= x[2];
@@ -189,25 +189,25 @@ InstallGlobalFunction( SpinSymClassFusion2Sin2A, function( cclX, cclY )
       z:= Reversed( SortedList( Concatenation( y, [2] ) ) );
       if SPINSYM_IsAPD( y ) and not 2 in y then
         z:= [ x[1], z ];
-      else 
+      else
         z:= [ 1, z ];
       fi;
-    fi;		
+    fi;
     Add( fus, Position( cclY, z ) );
   od;
   return fus;
 
 end );
-	
+
 
 ## SpinSymClassFusion2SSin2S( <cclX>, <cclY> )
-## INPUT .... class parameters <cclX> of 2.(Sym(k) x Sym(l))  
-## .......... class parameters <cclY> of 2.Sym(n) for n=k+l 
+## INPUT .... class parameters <cclX> of 2.(Sym(k) x Sym(l))
+## .......... class parameters <cclY> of 2.Sym(n) for n=k+l
 ## see \cite{Maas2011}*{(5.4.5)}
 
 InstallGlobalFunction( SpinSymClassFusion2SSin2S, function( cclX, cclY )
   local fus, x, pi, tau, mu, y, pi_o, pi_e, tau_o, tau_e, o, e, s;
-	
+
   fus:= [];
   for x in cclX do
     pi:=  x[2][1];
@@ -241,13 +241,13 @@ end );
 
 
 ## SpinSymClassFusion2SAin2SS( <cclX>, <cclY> )
-## INPUT .... class parameters <cclX> of 2.(Sym(k) x Alt(l))  
+## INPUT .... class parameters <cclX> of 2.(Sym(k) x Alt(l))
 ## .......... class parameters <cclY> of 2.(Sym(k) x Sym(l))
 ## see \cite{Maas2011}*{(5.4.6)}
 
 InstallGlobalFunction( SpinSymClassFusion2SAin2SS, function( cclX, cclY )
   local fus, x, pi, xtau, tau, y;
-	
+
   fus:= [];
   for x in cclX do
     pi:=   x[2][1];
@@ -257,27 +257,27 @@ InstallGlobalFunction( SpinSymClassFusion2SAin2SS, function( cclX, cclY )
     else
       tau:= xtau;
     fi;
-    if SPINSYM_IsAPO( pi ) and SPINSYM_IsAPO( tau ) then		
-      if not SPINSYM_IsAPD( tau ) then 
+    if SPINSYM_IsAPO( pi ) and SPINSYM_IsAPO( tau ) then
+      if not SPINSYM_IsAPD( tau ) then
         ## (pi,tau) is in O(k) x (O(l)\D^+(l))
         y:= [ x[1], [ pi, tau ] ];
-      else 
+      else
         ## (pi,tau) is in O(k) x (O(l)\cap D^+(l))
         if '+' in xtau then
-          y:= [ x[1], [ pi, tau ] ]; 
+          y:= [ x[1], [ pi, tau ] ];
         else ## '-' in xtau
-          y:= [ x[1], [ pi, tau ] ]; ## since pi is even 
-        fi; 
+          y:= [ x[1], [ pi, tau ] ]; ## since pi is even
+        fi;
       fi;
     elif SPINSYM_IsAPD( pi ) and SignPartition( pi ) = -1 and SPINSYM_IsAPD( tau ) then
       ## now (pi,tau) is in D(k)^- x D^+(k)
-      if not SPINSYM_IsAPO( tau ) then 
+      if not SPINSYM_IsAPO( tau ) then
         y:= [ x[1], [ pi, tau ] ];
-      else 
+      else
         ## (pi,tau) is in D^-(k) x (O(l)\cap D^+(l))
         if '+' in xtau then
-          y:= [ x[1], [ pi, tau ] ]; 
-        else ## '-' in xtau 
+          y:= [ x[1], [ pi, tau ] ];
+        else ## '-' in xtau
           y:= [ x[1] mod 2 + 1, [ pi, tau ] ]; ## since pi is odd
         fi;
       fi;
@@ -290,15 +290,15 @@ InstallGlobalFunction( SpinSymClassFusion2SAin2SS, function( cclX, cclY )
   return fus;
 
 end );
-	
+
 
 ## SpinSymClassFusion2ASin2SS( <cclX>, <cclY> )
-## INPUT .... class parameters <cclX> of 2.(Alt(k) x Sym(l))  
+## INPUT .... class parameters <cclX> of 2.(Alt(k) x Sym(l))
 ## .......... class parameters <cclY> of 2.(Sym(k) x Sym(l))
 
 InstallGlobalFunction( SpinSymClassFusion2ASin2SS, function( cclX, cclY )
   local fus, x, xpi, pi, tau, y;
-	
+
   fus:= [];
   for x in cclX do
     xpi:= x[2][1];
@@ -309,24 +309,24 @@ InstallGlobalFunction( SpinSymClassFusion2ASin2SS, function( cclX, cclY )
       pi:= xpi;
     fi;
     if SPINSYM_IsAPO( pi ) and SPINSYM_IsAPO( tau ) then
-			   if not SPINSYM_IsAPD( pi ) then 
+			   if not SPINSYM_IsAPD( pi ) then
         y:= [ x[1], [ pi, tau ] ];
-      else 
+      else
         if '+' in xpi then
-          y:= [ x[1], [ pi, tau ] ]; 
-        else ## '-' in xpi 
-          y:= [ x[1], [ pi, tau ] ]; 
-        fi; 
+          y:= [ x[1], [ pi, tau ] ];
+        else ## '-' in xpi
+          y:= [ x[1], [ pi, tau ] ];
+        fi;
       fi;
     elif SPINSYM_IsAPD( pi ) and SPINSYM_IsAPD( tau ) and SignPartition( tau ) = -1 then
-      if not SPINSYM_IsAPO( pi ) then 
+      if not SPINSYM_IsAPO( pi ) then
         y:= [ x[1], [ pi, tau ] ];
-      else 
+      else
         if '+' in xpi then
-          y:= [ x[1], [ pi, tau ] ]; 
-        else ## '-' in xpi 
-          y:= [ x[1] mod 2 + 1, [ pi, tau ] ]; 
-        fi;  
+          y:= [ x[1], [ pi, tau ] ];
+        else ## '-' in xpi
+          y:= [ x[1] mod 2 + 1, [ pi, tau ] ];
+        fi;
       fi;
     else
       y:= [ 1, [ pi, tau ] ];
@@ -334,12 +334,12 @@ InstallGlobalFunction( SpinSymClassFusion2ASin2SS, function( cclX, cclY )
     Add( fus, Position( cclY, y ) );
   od;
   return fus;
-  
-end );	
-	
-	
+
+end );
+
+
 ## SpinSymClassFusion2AAin2SA( <cclX>, <cclY> )
-## INPUT .... class parameters <cclX> of 2.(Alt(k) x Alt(l))  
+## INPUT .... class parameters <cclX> of 2.(Alt(k) x Alt(l))
 ## .......... class parameters <cclY> of 2.(Sym(k) x Alt(l))
 ## see \cite{Maas2011}*{(5.4.7)}
 
@@ -367,16 +367,16 @@ InstallGlobalFunction( SpinSymClassFusion2AAin2SA, function( cclX, cclY )
   od;
   return fus;
 
-end );	
+end );
 
 
 ## SpinSymClassFusion2AAin2AS( <cclX>, <cclY> )
-## INPUT .... class parameters <cclX> of 2.(Alt(k) x Alt(l))  
+## INPUT .... class parameters <cclX> of 2.(Alt(k) x Alt(l))
 ## .......... class parameters <cclY> of 2.(Alt(k) x Sym(l))
 
 InstallGlobalFunction( SpinSymClassFusion2AAin2AS, function( cclX, cclY )
   local fus, x, pi, xtau, tau, y, pos;
-	
+
   fus:= [ ];
   for x in cclX do
     pi:= x[2][1];
@@ -388,7 +388,7 @@ InstallGlobalFunction( SpinSymClassFusion2AAin2AS, function( cclX, cclY )
     fi;
     y:= [ x[1], [ pi, tau ] ];
     ## 1\2_x corresponds to 1\2_y if there are split classes 1_y and 2_y
-    ## otherwise, 1\2_x fuse in 1_y   
+    ## otherwise, 1\2_x fuse in 1_y
     pos:= Position( cclY, y );
     if pos = fail then
       y:= [ 1, [ pi, tau ] ];
@@ -398,21 +398,21 @@ InstallGlobalFunction( SpinSymClassFusion2AAin2AS, function( cclX, cclY )
   od;
   return fus;
 
-end );	
+end );
 
 
 ## SpinSymClassFusion2AAin2A( <cclX>, <cclY> )
-## INPUT .... class parameters <cclX> of 2.(Alt(k) x Alt(l))  
-## .......... class parameters <cclY> of 2.Alt(n) for n=k+l 
+## INPUT .... class parameters <cclX> of 2.(Alt(k) x Alt(l))
+## .......... class parameters <cclY> of 2.Alt(n) for n=k+l
 ## see \cite{Maas2011}*{(5.4.8)}
 
 ## RECALL: the 1\2 split classes of 2.Alt(n) are parameterized by O(n)\cup D^+(n);
 ## RECALL: the +\- split classes of Alt(n) are parameterized by O(n)\cap D^+(n).
 
 InstallGlobalFunction( SpinSymClassFusion2AAin2A, function( cclX, cclY )
-  local splittype, fus, x, xpi, xtau, pi, tau, sgnpi, sgntau, 
+  local splittype, fus, x, xpi, xtau, pi, tau, sgnpi, sgntau,
         mu, y, pi_o, pi_e, tau_e, o, e, f, type;
-	
+
   splittype:= function( tau )
   	if SPINSYM_IsAPO( tau ) and SPINSYM_IsAPD( tau ) then
     	return [ tau, '+' ];
@@ -420,7 +420,7 @@ InstallGlobalFunction( SpinSymClassFusion2AAin2A, function( cclX, cclY )
     	return tau;
   	fi;
 	end;
-  
+
   fus:= [];
   for x in cclX do
     xpi:= x[2][1];
@@ -440,13 +440,13 @@ InstallGlobalFunction( SpinSymClassFusion2AAin2A, function( cclX, cclY )
       sgntau:= '+';
     fi;
     mu:= Reversed( SortedList( Concatenation( pi, tau ) ) );
-		
+
     if not SPINSYM_IsAPO( mu ) and not SPINSYM_IsAPD( mu ) then
-    
+
       y:= [ 1, mu ];
-    
+
     else
-    
+
       pi_o:= Filtered( pi, t-> t mod 2 = 1 );
       pi_e:= Filtered( pi, t-> t mod 2 = 0 );
       tau_e:= Filtered( tau, t-> t mod 2 = 0 );
@@ -455,15 +455,15 @@ InstallGlobalFunction( SpinSymClassFusion2AAin2A, function( cclX, cclY )
       f:= Length( pi_e ) + Length( tau_e );
       type:= Set( [ sgnpi, sgntau ] ); ## "+-", "+", or "-"
       if x[1] = 2 then
-        e:= e+1; ## second class 
+        e:= e+1; ## second class
       fi;
-      
+
       if type = "+" or type = "-" then
-				    
+
 				    if o mod 2 = 0 then
           y:= [ e, splittype(mu)  ];
-        elif f > 0 then ## o is odd 
-          y:= [ e+f-1, mu ]; 
+        elif f > 0 then ## o is odd
+          y:= [ e+f-1, mu ];
         elif not SPINSYM_IsAPD(mu) then ## o is odd and f=0
           y:= [ e, mu ];
         else
@@ -475,53 +475,53 @@ InstallGlobalFunction( SpinSymClassFusion2AAin2A, function( cclX, cclY )
         if o mod 2 = 1 then
           y:= [ e, splittype( mu ) ];
         elif f > 0 then ## o is even
-          y:= [ e+f-1, mu ]; 
+          y:= [ e+f-1, mu ];
         elif not SPINSYM_IsAPD(mu) then ## o is even and f=0
           y:= [ e, mu  ];
-        else 
+        else
           y:= [ e, [ mu, '-' ] ];
         fi;
 
       fi;
-			
+
 			   ## y[1]=1 if the exponent of z in even, y[2]=2 otherwise
       y:= [ y[1] mod 2 + 1, y[2] ];
-			
+
     fi;
 		  Add( fus, Position( cclY, y ) );
   od;
   return fus;
 
-end );		
-		
+end );
+
 
 #############################################################################
 ## MAIN USER FUNCTION
 ## SpinSymClassFusion( <X>, <Y> )
-## INPUT .... (ordinary or modular) 'generic' character table <X> of SOURCE  
-## .......... (ordinary or modular) 'generic' character table <Y> of DEST 
+## INPUT .... (ordinary or modular) 'generic' character table <X> of SOURCE
+## .......... (ordinary or modular) 'generic' character table <Y> of DEST
 ## .......... where the possible pairs of SOURCE and DEST are
 ## .......... ...............................................
 ## .......... SOURCE ................ DEST ..................
-## .......... 2.Alt(n) .............. 2.Sym(n) 
-## .......... 2.Sym(k) .............. 2.Sym(n) 
+## .......... 2.Alt(n) .............. 2.Sym(n)
+## .......... 2.Sym(k) .............. 2.Sym(n)
 ## .......... 2.Alt(k) .............. 2.Alt(n)
-## .......... 2.Sym(n-2) ............ 2.Alt(n) 
-## .......... 2.(Sym(k) x Sym(l)) ... 2.Sym(k+l) 
-## .......... 2.(Sym(k) x Alt(l)) ... 2.(Sym(k) x Sym(l)) 
-## .......... 2.(Alt(k) x Sym(l)) ... 2.(Sym(k) x Sym(l))  
-## .......... 2.(Alt(k) x Alt(l)) ... 2.(Sym(k) x Alt(l))  
-## .......... 2.(Alt(k) x Alt(l)) ... 2.(Alt(k) x Sym(l))  
-## .......... 2.(Alt(k) x Alt(l)) ... 2.Alt(k+l)  
+## .......... 2.Sym(n-2) ............ 2.Alt(n)
+## .......... 2.(Sym(k) x Sym(l)) ... 2.Sym(k+l)
+## .......... 2.(Sym(k) x Alt(l)) ... 2.(Sym(k) x Sym(l))
+## .......... 2.(Alt(k) x Sym(l)) ... 2.(Sym(k) x Sym(l))
+## .......... 2.(Alt(k) x Alt(l)) ... 2.(Sym(k) x Alt(l))
+## .......... 2.(Alt(k) x Alt(l)) ... 2.(Alt(k) x Sym(l))
+## .......... 2.(Alt(k) x Alt(l)) ... 2.Alt(k+l)
 
-## OUTPUT ... the fusion map fus from SOURCE to DEST as returned by  
+## OUTPUT ... the fusion map fus from SOURCE to DEST as returned by
 ## .......... SpinSymClassFusionSOURCEinDEST
-## .......... the fusion map is stored only if there is no fusion map from 
-## .......... SOURCE to DEST stored yet 
+## .......... the fusion map is stored only if there is no fusion map from
+## .......... SOURCE to DEST stored yet
 
 InstallGlobalFunction( SpinSymClassFusion, function( X, Y )
   local idX, idY, S, A, type, cclX, cclY, fus, storedfus;
-	
+
   idX:= Identifier( X );
   idY:= Identifier( Y );
 
@@ -547,17 +547,17 @@ InstallGlobalFunction( SpinSymClassFusion, function( X, Y )
   else
   	type:= Concatenation( type, "fus", "2", S, A );
 	fi;
-	
+
   cclX:= ClassParameters( X );
   cclY:= ClassParameters( Y );
 
   ## call the appropriate SpinSymClassFusionSOURCEinDEST function
   if type="2Afus2S" then
-    fus:= SpinSymClassFusion2Ain2S( cclX, cclY );	
+    fus:= SpinSymClassFusion2Ain2S( cclX, cclY );
   elif type="2Sfus2S" then
     fus:= SpinSymClassFusion2Sin2S( cclX, cclY );
   elif type="2Afus2A" then
-    fus:= SpinSymClassFusion2Ain2A( cclX, cclY );		
+    fus:= SpinSymClassFusion2Ain2A( cclX, cclY );
   elif type="2Sfus2A" then
     fus:= SpinSymClassFusion2Sin2A( cclX, cclY );
   elif type="2SSfus2S" then
@@ -574,24 +574,24 @@ InstallGlobalFunction( SpinSymClassFusion, function( X, Y )
     fus:= SpinSymClassFusion2AAin2A( cclX, cclY );
   else
     fus:= fail;
-  fi;	
-		
+  fi;
+
   ## now store the fusion only if there is no fusion map available
   storedfus:= GetFusionMap( X, Y );
   if storedfus <> fail then
     if storedfus <> fus then
-      Print( "#I SpinSymClassFusion: WARNING\n", 
-      "#I ................... a different fusion map from ", idX, " to ", 
-      idY, " is stored already\n" ); 
-    fi;	
+      Print( "#I SpinSymClassFusion: WARNING\n",
+      "#I ................... a different fusion map from ", idX, " to ",
+      idY, " is stored already\n" );
+    fi;
   elif not fail in fus then
     StoreFusion( X, fus, Y );
-    Print( "#I SpinSymClassFusion: stored fusion map from ", 
-           idX, " to ", idY, "\n" ); 
+    Print( "#I SpinSymClassFusion: stored fusion map from ",
+           idX, " to ", idY, "\n" );
   else
     return fail;
   fi;
   return fus;
- 
+
 end );
 
