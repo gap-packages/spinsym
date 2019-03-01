@@ -19,6 +19,14 @@ Persons := [
     Email         := "maasluk@gmail.com",
   ),
 
+  rec(
+    LastName      := "GAP Team",
+    FirstNames    := "The",
+    IsAuthor      := false,
+    IsMaintainer  := true,
+    Email         := "support@gap-system.org",
+  ),
+
 ],
 
 Status := "deposited",
