@@ -11,14 +11,14 @@ Version := "1.5dev",
 Date := "01/02/2013",
 
 Persons := [
-    rec(
-  	  LastName      := "Maas",
-   	  FirstNames    := "Lukas",
-   	  IsAuthor      := true,
-   	  IsMaintainer  := true,
-  	  Email         := "lukas.maas@iem.uni-due.de",
-   	  WWWHome       := "http://www.uni-due.de/~s400304"
-    ),
+  rec(
+    LastName      := "Maas",
+    FirstNames    := "Lukas",
+    IsAuthor      := true,
+    IsMaintainer  := true,
+    Email         := "maasluk@gmail.com",
+  ),
+
 ],
 
 Status := "deposited",
