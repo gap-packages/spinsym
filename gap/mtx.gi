@@ -93,25 +93,25 @@ end );
 ## OUTPUT ... the Brauer character afforded by R
 
 InstallGlobalFunction( SpinSymBrauerCharacter,
-	function( ccl, ords, rep )
-		local brauercharactervalue, pos1, pos2, i, t, phi;
+  function( ccl, ords, rep )
+    local brauercharactervalue, pos1, pos2, i, t, phi;
 
-		## slightly changed version of Thomas Breuer's
-		## original function BrauerCharacterValue
-		brauercharactervalue:= function( mat, order )
-    	local  n, p, info, value, pair, f, nullity;
+    ## slightly changed version of Thomas Breuer's
+    ## original function BrauerCharacterValue
+    brauercharactervalue:= function( mat, order )
+      local  n, p, info, value, pair, f, nullity;
 
-    	n:= order; # the only change
-    	if n = 1  then
+      n:= order; # the only change
+      if n = 1  then
         return Length( mat );
-    	fi;
-    	p := Characteristic( mat );
-    	if n mod p = 0  then
+      fi;
+      p := Characteristic( mat );
+      if n mod p = 0  then
         return fail;
-    	fi;
-    	info := ZevData( p ^ DegreeFFE( mat ), n );
-    	value := 0;
-    	for pair  in info  do
+      fi;
+      info := ZevData( p ^ DegreeFFE( mat ), n );
+      value := 0;
+      for pair  in info  do
         f := pair[1];
         nullity := Length( NullspaceMat( ValuePol( f, mat ) ) );
         if nullity <> 0  then
@@ -120,21 +120,21 @@ InstallGlobalFunction( SpinSymBrauerCharacter,
              "degree of <f> must divide <nullity>" );
              value := value + nullity * pair[2];
         fi;
-    	od;
-    	return value;
-		end;
+      od;
+      return value;
+    end;
 
     pos1:= Filtered( [1 .. Length( ccl ) ], i-> ccl[i][1] = 1 );
     phi:= [];
-		for i in pos1 do
-			t:= SpinSymStandardRepresentative( ccl[i][2], rep );
-			phi[i]:= brauercharactervalue( t, ords[i] );
-			pos2:= Position( ccl, [ 2, ccl[i][2] ] );
-			if pos2 <> fail then
-				phi[ pos2 ]:= - phi[i];
-			fi;
-		od;
-		return phi;
+    for i in pos1 do
+      t:= SpinSymStandardRepresentative( ccl[i][2], rep );
+      phi[i]:= brauercharactervalue( t, ords[i] );
+      pos2:= Position( ccl, [ 2, ccl[i][2] ] );
+      if pos2 <> fail then
+        phi[ pos2 ]:= - phi[i];
+      fi;
+    od;
+    return phi;
 
 end );
 
@@ -144,13 +144,13 @@ end );
 ## OUTPUT ... a <p>-modular basic spin character of <modtbl>
 
 InstallGlobalFunction( SpinSymBasicCharacter, function( modtbl )
-	local ccl, ords, rep;
+  local ccl, ords, rep;
 
-	ccl:= ClassParameters( modtbl );
-	ords:= OrdersClassRepresentatives( modtbl );
-	rep:= BasicSpinRepresentationOfSymmetricGroup( Sum( ccl[1][2] ),
-														 UnderlyingCharacteristic( modtbl ) );
-	return SpinSymBrauerCharacter( ccl, ords, rep );
+  ccl:= ClassParameters( modtbl );
+  ords:= OrdersClassRepresentatives( modtbl );
+  rep:= BasicSpinRepresentationOfSymmetricGroup( Sum( ccl[1][2] ),
+                             UnderlyingCharacteristic( modtbl ) );
+  return SpinSymBrauerCharacter( ccl, ords, rep );
 
 end );
 
@@ -159,71 +159,70 @@ end );
 ## returns the transposition t_<i>,<j> under the matrix representation <rep>
 
 BindGlobal( "SPINSYM_Transposition",
-	function( i, j, rep )
-		local pos;
+  function( i, j, rep )
+    local pos;
 
-		if i <= j then
-			pos:= [ i .. j-1 ];
-			Append( pos, Reversed( [ i .. j-2 ] ) );
-		else
-			pos:= [ j .. i-1 ];
-			Append( pos, Reversed( [ j .. i-2 ] ) );
-		fi;
-		return Product( rep{ pos } );
-	end );
+    if i <= j then
+      pos:= [ i .. j-1 ];
+      Append( pos, Reversed( [ i .. j-2 ] ) );
+    else
+      pos:= [ j .. i-1 ];
+      Append( pos, Reversed( [ j .. i-2 ] ) );
+    fi;
+    return Product( rep{ pos } );
+  end );
 
 
 ## SPINSYM_DecompositionInTranspositions( <pi> )
 ## writes a permutation <pi> as a product of transpositions
 ##
-## returns	a list [ [i1,i2], [i3,i4], ... ] such that
+## returns  a list [ [i1,i2], [i3,i4], ... ] such that
 ## pi = (i1,i2)(i3,i4)...
 
 BindGlobal( "SPINSYM_DecompositionInTranspositions",
-	function( pi )
-		local m, mp, pos, t, i, s, spos, j;
+  function( pi )
+    local m, mp, pos, t, i, s, spos, j;
 
-		if pi = () then
-			return [];
-		fi;
+    if pi = () then
+      return [];
+    fi;
 
-		m:= ListPerm( pi );
-		mp:= MovedPoints( pi );
-		pos:= List( mp, x-> Position( m, x ) );
-		t:= [];
-		while Length( pos ) > 1 do
-			i:= pos[1];
-			# get the orbit of pi starting from m[i]
-			s:= [];
-			spos:= [i];
-			j:= i;
-			while m[j] <> i  do
-      	j := m[j];
-      	Add( s, [ i, j ] );
-      	Add( spos, j );
-    	od;
-    	pos:= DifferenceLists( pos, spos );
-    	Append( t, s );
-		od;
-		return t;
-	end );
+    m:= ListPerm( pi );
+    mp:= MovedPoints( pi );
+    pos:= List( mp, x-> Position( m, x ) );
+    t:= [];
+    while Length( pos ) > 1 do
+      i:= pos[1];
+      # get the orbit of pi starting from m[i]
+      s:= [];
+      spos:= [i];
+      j:= i;
+      while m[j] <> i  do
+        j := m[j];
+        Add( s, [ i, j ] );
+        Add( spos, j );
+      od;
+      pos:= DifferenceLists( pos, spos );
+      Append( t, s );
+    od;
+    return t;
+  end );
 
 
 ## SpinSymPreimage( <pi>, <rep> )
 ## returns a (standard) preimage of the element <pi> of Sym(n)
 ## in 2.Sym(n) under the representation <rep>
-##		<pi>  : an element of Sym(n)
-##		<rep> : a faithful representation of 2.Sym(n)
+##    <pi>  : an element of Sym(n)
+##    <rep> : a faithful representation of 2.Sym(n)
 
 InstallGlobalFunction( SpinSymPreimage, function( pi, rep )
-	local trans, PI, ij;
+  local trans, PI, ij;
 
-	trans:= SPINSYM_DecompositionInTranspositions( pi );
-	PI:= rep[1]^0;
+  trans:= SPINSYM_DecompositionInTranspositions( pi );
+  PI:= rep[1]^0;
   for ij  in trans  do
-  	PI:= PI * SPINSYM_Transposition( ij[1], ij[2], rep );
+    PI:= PI * SPINSYM_Transposition( ij[1], ij[2], rep );
   od;
-	return PI;
+  return PI;
 
 end );
-
