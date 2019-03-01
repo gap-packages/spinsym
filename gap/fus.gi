@@ -40,7 +40,7 @@ end );
 
 
 ## SPINSYM_IsAPO( <tau> ) ......... { All Parts Odd }
-## INPUT ....	a list <tau> of integers
+## INPUT .... a list <tau> of integers
 ## OUTPUT ... true iff all entries of <tau> are odd
 
 BindGlobal( "SPINSYM_IsAPO", function( tau )
@@ -138,8 +138,8 @@ InstallGlobalFunction( SpinSymClassFusion2Ain2A, function( cclX, cclY )
   local filt, m, fus, x, y, z;
 
   filt:= function(x)
-		return Flat(Filtered(x,y->not IsChar(y)));
-	end;
+    return Flat(Filtered(x,y->not IsChar(y)));
+  end;
   m:= Sum( filt(cclY[1][2]) ) - Sum( filt(cclX[1][2]) );
   m:= ListWithIdenticalEntries( m, 1 );
   fus:= [ ];
@@ -309,7 +309,7 @@ InstallGlobalFunction( SpinSymClassFusion2ASin2SS, function( cclX, cclY )
       pi:= xpi;
     fi;
     if SPINSYM_IsAPO( pi ) and SPINSYM_IsAPO( tau ) then
-			   if not SPINSYM_IsAPD( pi ) then
+      if not SPINSYM_IsAPD( pi ) then
         y:= [ x[1], [ pi, tau ] ];
       else
         if '+' in xpi then
@@ -414,12 +414,12 @@ InstallGlobalFunction( SpinSymClassFusion2AAin2A, function( cclX, cclY )
         mu, y, pi_o, pi_e, tau_e, o, e, f, type;
 
   splittype:= function( tau )
-  	if SPINSYM_IsAPO( tau ) and SPINSYM_IsAPD( tau ) then
-    	return [ tau, '+' ];
-  	else
-    	return tau;
-  	fi;
-	end;
+    if SPINSYM_IsAPO( tau ) and SPINSYM_IsAPD( tau ) then
+      return [ tau, '+' ];
+    else
+      return tau;
+    fi;
+  end;
 
   fus:= [];
   for x in cclX do
@@ -460,7 +460,7 @@ InstallGlobalFunction( SpinSymClassFusion2AAin2A, function( cclX, cclY )
 
       if type = "+" or type = "-" then
 
-				    if o mod 2 = 0 then
+        if o mod 2 = 0 then
           y:= [ e, splittype(mu)  ];
         elif f > 0 then ## o is odd
           y:= [ e+f-1, mu ];
@@ -484,11 +484,11 @@ InstallGlobalFunction( SpinSymClassFusion2AAin2A, function( cclX, cclY )
 
       fi;
 
-			   ## y[1]=1 if the exponent of z in even, y[2]=2 otherwise
+      ## y[1]=1 if the exponent of z in even, y[2]=2 otherwise
       y:= [ y[1] mod 2 + 1, y[2] ];
 
     fi;
-		  Add( fus, Position( cclY, y ) );
+    Add( fus, Position( cclY, y ) );
   od;
   return fus;
 
@@ -528,25 +528,25 @@ InstallGlobalFunction( SpinSymClassFusion, function( X, Y )
   S:= Filtered( idX, x-> x = 'S' );
   A:= Filtered( idX, x-> x = 'A' );
   if Length(S) = Length(A) then  ## type 2SA or 2AS
-  	if Position( idX, 'S' ) < Position( idX, 'A' ) then
-  		type:= Concatenation( "2", S, A );
-  	else
-  		type:= Concatenation( "2", A, S );
-  	fi;
+    if Position( idX, 'S' ) < Position( idX, 'A' ) then
+      type:= Concatenation( "2", S, A );
+    else
+      type:= Concatenation( "2", A, S );
+    fi;
   else
-  	type:= Concatenation( "2", S, A );
-	fi;
+    type:= Concatenation( "2", S, A );
+  fi;
   S:= Filtered( idY, x-> x = 'S' );
   A:= Filtered( idY, x-> x = 'A' );
   if Length(S) = Length(A) then  ## type 2SA or 2AS
-  	if Position( idY, 'S' ) < Position( idY, 'A' ) then
-  		type:= Concatenation( type, "fus", "2", S, A );
-  	else
-  		type:= Concatenation( type, "fus", "2", A, S );
-  	fi;
+    if Position( idY, 'S' ) < Position( idY, 'A' ) then
+      type:= Concatenation( type, "fus", "2", S, A );
+    else
+      type:= Concatenation( type, "fus", "2", A, S );
+    fi;
   else
-  	type:= Concatenation( type, "fus", "2", S, A );
-	fi;
+    type:= Concatenation( type, "fus", "2", S, A );
+  fi;
 
   cclX:= ClassParameters( X );
   cclY:= ClassParameters( Y );
@@ -594,4 +594,3 @@ InstallGlobalFunction( SpinSymClassFusion, function( X, Y )
   return fus;
 
 end );
-
