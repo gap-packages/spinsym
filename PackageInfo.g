@@ -7,7 +7,7 @@ SetPackageInfo( rec(
 
 PackageName := "SpinSym",
 Subtitle := "Brauer tables of spin-symmetric groups",
-Version := "1.5",
+Version := "1.5dev",
 Date := "01/02/2013",
 
 Persons := [
