@@ -1,22 +1,27 @@
   
   
-                                    [1X[5XSpinSym[105X[101X
+                                   [1X SpinSym [101X
   
   
-                     [1XBrauer tables of spin-symmetric groups[101X
+                    [1X Brauer tables of spin-symmetric groups [101X
   
   
-                               Version 1.5 (2013)
+                                 Version 1.5.1
   
   
+                                  2 March 2019
   
   
                                    Lukas Maas
   
+                                  The GAP Team
+  
   
   
   Lukas Maas
-      Email:    [7Xmailto:lukas.maas@iem.uni-due.de[107X
+      Email:    [7Xmailto:maasluk@gmail.com[107X
+  The GAP Team
+      Email:    [7Xmailto:support@gap-system.org[107X
   
   -------------------------------------------------------
   [1XCopyright[101X
