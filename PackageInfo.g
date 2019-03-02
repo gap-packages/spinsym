@@ -7,8 +7,8 @@ SetPackageInfo( rec(
 
 PackageName := "SpinSym",
 Subtitle := "Brauer tables of spin-symmetric groups",
-Version := "1.5dev",
-Date := "01/02/2013",
+Version := "1.5.1",
+Date := "02/03/2019",
 
 Persons := [
   rec(
@@ -41,7 +41,7 @@ Status := "deposited",
 #AcceptDate := "",
 
 PackageWWWHome  := "https://gap-packages.github.io/spinsym/",
-README_URL      := Concatenation( ~.PackageWWWHome, "README.md" ),
+README_URL      := Concatenation( ~.PackageWWWHome, "README" ),
 PackageInfoURL  := Concatenation( ~.PackageWWWHome, "PackageInfo.g" ),
 SourceRepository := rec(
     Type := "git",
