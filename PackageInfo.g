@@ -9,6 +9,7 @@ PackageName := "SpinSym",
 Subtitle := "Brauer tables of spin-symmetric groups",
 Version := "1.5.1",
 Date := "02/03/2019",
+License := "GPL-2.0-or-later",
 
 Persons := [
   rec(
