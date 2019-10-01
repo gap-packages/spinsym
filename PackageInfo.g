@@ -102,7 +102,7 @@ AutoDoc := rec(
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with this program (see the file COPYING).
+    along with this program (see the file LICENSE).
     If not, see <URL>http://www.gnu.org/licenses/</URL>.
 """,
     ),
