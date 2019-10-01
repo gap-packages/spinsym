@@ -7,8 +7,9 @@ SetPackageInfo( rec(
 
 PackageName := "SpinSym",
 Subtitle := "Brauer tables of spin-symmetric groups",
-Version := "1.5.1",
-Date := "02/03/2019",
+Version := "1.5.2",
+Date := "01/10/2019",
+License := "GPL-2.0-or-later",
 
 Persons := [
   rec(
@@ -101,7 +102,7 @@ AutoDoc := rec(
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with this program (see the file COPYING).
+    along with this program (see the file LICENSE).
     If not, see <URL>http://www.gnu.org/licenses/</URL>.
 """,
     ),

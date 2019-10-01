@@ -73,7 +73,7 @@
   
   [1X1.3 [33X[0;0YInstallation and loading[133X[101X
   
-  [33X[0;0YTo  install this package, download the archive file [9Xspinsym-1.5.1.tar.gz[109X and
+  [33X[0;0YTo  install this package, download the archive file [9Xspinsym-1.5.2.tar.gz[109X and
   unpack it inside the [9Xpkg[109X subdirectory of your [5XGAP[105X installation. It creates a
   subdirectory  called  [9Xspinsym[109X.  Then  load the package using the [9XLoadPackage[109X
   command.[133X
