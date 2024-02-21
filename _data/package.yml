@@ -1,5 +1,6 @@
 name: SpinSym
-version: 1.5.2
+version: "1.5.2"
+license: "GPL-2.0-or-later"
 date: 2019-10-01
 description: |
     Brauer tables of spin-symmetric groups
@@ -19,7 +20,7 @@ GAP: ">=4.5"
 needed-pkgs:
     - name: "CTblLib"
       version: ">=1.2.2"
-      url: "http://www.math.rwth-aachen.de/~Thomas.Breuer/ctbllib"
+      url: "https://www.math.rwth-aachen.de/~Thomas.Breuer/ctbllib"
     - name: "GAPDoc"
       version: ">=1.5"
       url: "http://www.math.rwth-aachen.de/~Frank.Luebeck/GAPDoc"
