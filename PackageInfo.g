@@ -66,7 +66,6 @@ PackageDoc := rec(
   PDFFile   := "doc/manual.pdf",
   SixFile   := "doc/manual.six",
   LongTitle := "The SpinSym Package",
-  Autoload  := true
 ),
 
 Dependencies := rec(
