@@ -32,7 +32,6 @@ jobs:
           - '4.12'
           #- stable-4.11  # fails due to warnings in loading AtlasRep; seems safe to ignore
           - '4.10'
-          - '4.9'
 
     steps:
       - uses: actions/checkout@v6
