@@ -152,21 +152,17 @@ To install this package, download the archive file
 subdirectory of your &GAP; installation. It creates a 
 subdirectory called <K>spinsym</K>. Then load the package
 using the <K>LoadPackage</K> command.
-<Log>
-<![CDATA[
+<Log><![CDATA[
 gap> LoadPackage("spinsym");
-]]>
-</Log>
+]]></Log>
 The <Package>SpinSym</Package> package banner should appear 
 on the screen. You may want to run a quick test of the 
 installation: 
-<Log>
-<![CDATA[
+<Log><![CDATA[
 gap> dir:= DirectoriesPackageLibrary( "spinsym", "tst" )[1];;
 gap> tst:= Filename( dir, "testall.tst" );;
 gap> Test( tst );
 true
-]]>
-</Log>
+]]></Log>
 </Section>
 </Chapter>
