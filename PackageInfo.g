@@ -70,7 +70,7 @@ PackageDoc := rec(
 
 Dependencies := rec(
   GAP := ">=4.5",
-  NeededOtherPackages := [["CTblLib", ">=1.2.2"],["GAPDoc", ">=1.5"]],
+  NeededOtherPackages := [["CTblLib", ">=1.2.2"]],
   SuggestedOtherPackages := [],
   ExternalConditions := []
 
