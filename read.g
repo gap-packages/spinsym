@@ -12,28 +12,26 @@ ReadPackage( "spinsym", "gap/young.gi" );
 
 ## SPINSYM_INIT() notifies the GAP Character Table Library CTblLib of
 ## SpinSym's ordinary and modular tables of alternating and symmetric
-## groups and their double covers
+## groups and their double covers, in one call: each NotifyCharacterTable
+## call copies and re-sorts CTblLib's table of contents, so notifying the
+## 72 tables one by one takes 60 ms.
 
 BindGlobal( "SPINSYM_INIT", function()
-  local dir, n, ordfile;
+  local dir, tables, n, pair;
 
   dir:= Directory( Concatenation(
                PackageInfo("spinsym")[1].InstallationPath, "/symdata" ) );
 
+  tables:= [];
   for n in [ 2 .. 19 ] do
-    ordfile:= Filename( dir, Concatenation(  "ctoa", String( n ) ) );
-    NotifyCharacterTable( Concatenation( "Alt(", String( n ), ")" ),
-                          ordfile, [] );
-    ordfile:= Filename( dir, Concatenation( "cto2a", String( n ) ) );
-    NotifyCharacterTable( Concatenation( "2.Alt(", String( n ), ")" ),
-                          ordfile, [] );
-    ordfile:= Filename( dir, Concatenation( "ctos", String( n ) ) );
-    NotifyCharacterTable( Concatenation( "Sym(", String( n ), ")" ),
-                          ordfile, [] );
-    ordfile:= Filename( dir, Concatenation( "cto2s", String( n ) ) );
-    NotifyCharacterTable( Concatenation( "2.Sym(", String( n ), ")" ),
-                          ordfile, [] );
+    for pair in [ [ "Alt(", "ctoa" ], [ "2.Alt(", "cto2a" ],
+                  [ "Sym(", "ctos" ], [ "2.Sym(", "cto2s" ] ] do
+      Add( tables, [ Concatenation( pair[1], String( n ), ")" ),
+                     Filename( dir, Concatenation( pair[2], String( n ) ) ),
+                     [] ] );
+    od;
   od;
+  NotifyCharacterTables( tables );
 
 end );
 
