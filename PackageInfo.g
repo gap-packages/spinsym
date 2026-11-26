@@ -69,8 +69,8 @@ PackageDoc := rec(
 ),
 
 Dependencies := rec(
-  GAP := ">=4.5",
-  NeededOtherPackages := [["CTblLib", ">=1.2.2"]],
+  GAP := ">=4.12.0",
+  NeededOtherPackages := [["CTblLib", ">=1.3.0"]],
   SuggestedOtherPackages := [],
   ExternalConditions := []
 
