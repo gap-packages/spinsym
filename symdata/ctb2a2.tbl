@@ -20,7 +20,7 @@ MBT("2.Alt(2)",3,
 0,
 0,
 0,
-rec(CharacterParameters:=[[1,[2]],[2,[[2],'0']]]));
+rec(CharacterParameters:=[[1,[[2],'0']],[2,[[2],'0']]]));
 
 MBT("2.Alt(2)",5,
 "(no info text)",
@@ -32,7 +32,7 @@ MBT("2.Alt(2)",5,
 0,
 0,
 0,
-rec(CharacterParameters:=[[1,[2]],[2,[[2],'0']]]));
+rec(CharacterParameters:=[[1,[[2],'0']],[2,[[2],'0']]]));
 
 MBT("2.Alt(2)",7,
 "(no info text)",
@@ -44,5 +44,5 @@ MBT("2.Alt(2)",7,
 0,
 0,
 0,
-rec(CharacterParameters:=[[1,[2]],[2,[[2],'0']]]));
+rec(CharacterParameters:=[[1,[[2],'0']],[2,[[2],'0']]]));
 
