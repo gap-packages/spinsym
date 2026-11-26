@@ -59,9 +59,9 @@ end );
 ## INPUT .... a class parameter <c> of a conjugacy class of 2.Sym(n) or 2.Alt(n), i.e.
 ## .......... <c> = lambda or <c> = [ lambda, sign ] where
 ## .......... lambda is a partition of n and sign is either '+' or '-';
-## .......... OPTIONAL: an integer <j> such that 0<j<n; by default, <j>=1.
+## .......... OPTIONAL: a positive integer <j>; by default, <j>=1.
 ## OUTPUT ... the image of the 2.Sym(n)-standard representative of type <c> in Sym(n)
-## .......... under the epimorphism t_i -> (i,i+1) for i=<j>,...,n-1.
+## .......... under the epimorphism t_i -> (i,i+1) for i=<j>,...,<j>+n-2.
 ## NOTE ..... if <c> = [ lambda, '-' ], then s^(<j>,<j>+1) is returned, where s denotes
 ## .......... the image of the standard representative of type [ lambda, '+' ] =  lambda
 

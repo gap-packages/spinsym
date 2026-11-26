@@ -38,7 +38,7 @@ and
 	</Display>
 </Alt>
 
-where the relations are imposed for all admissable <M>i,j,k</M> 
+where the relations are imposed for all admissible <M>i,j,k</M> 
 with <M>|j-k|>1</M>. Provided <M>n\geq 4</M>, these groups are 
 double covers of the symmetric group <Alt Only="LaTeX"><M>S_n</M></Alt>
 <Alt Not="LaTeX"><M>Sym(n)</M></Alt> 
@@ -81,7 +81,7 @@ or
 are called spin representations and a similar `spin' terminology 
 is used for all related faithful objects, to set them apart from
 the non-faithful objects that 
-belong esssentially to 
+belong essentially to 
 <Alt Only="LaTeX"><M>S_n</M></Alt>
 <Alt Not="LaTeX"><M>Sym(n)</M></Alt>
 or 
