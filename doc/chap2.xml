@@ -1009,8 +1009,8 @@ SpinSym tables of
 and <Alt Only="LaTeX"><M>\tilde{A}_n</M></Alt><Alt Not="LaTeX"><M>2.Alt(n)</M></Alt>, 
 respectively, a corresponding class fusion map with respect 
 to the embedding of 
-<Alt Only="LaTeX"><M>\langle t_1t_{n-2},\ldots,t_{n-3}t_{n-1}\rangle\cong\tilde{S}_{n-2}</M></Alt>
-<Alt Not="LaTeX"><M>&lt; t_1t_{n-2},\ldots,t_{n-3}t_{n-1} &gt;</M> isomorphic to <M>2.Sym(n-2)</M></Alt> 
+<Alt Only="LaTeX"><M>\langle t_1t_{n-1},\ldots,t_{n-3}t_{n-1}\rangle\cong\tilde{S}_{n-2}</M></Alt>
+<Alt Not="LaTeX"><M>&lt; t_1t_{n-1},\ldots,t_{n-3}t_{n-1} &gt;</M> isomorphic to <M>2.Sym(n-2)</M></Alt> 
 in 
 <Alt Only="LaTeX"><M>\tilde{A}_n</M></Alt>
 <Alt Not="LaTeX"><M>2.Alt(n)</M></Alt> is determined. 

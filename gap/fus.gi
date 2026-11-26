@@ -270,7 +270,7 @@ InstallGlobalFunction( SpinSymClassFusion2SAin2SS, function( cclX, cclY )
         fi;
       fi;
     elif SPINSYM_IsAPD( pi ) and SignPartition( pi ) = -1 and SPINSYM_IsAPD( tau ) then
-      ## now (pi,tau) is in D(k)^- x D^+(k)
+      ## now (pi,tau) is in D^-(k) x D^+(l)
       if not SPINSYM_IsAPO( tau ) then
         y:= [ x[1], [ pi, tau ] ];
       else
