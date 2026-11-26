@@ -879,7 +879,7 @@ InstallGlobalFunction(
 
 #############################################################################
 ##
-##  taken from Thomas' ctadmin.tbi -- just a hack for the mod-2 case in order
+##  taken from CTblLib's ctadmin.gi -- just a hack for the mod-2 case in order
 ##  to deal with character parameters
 ##  obsolete if Thomas agrees to add the part that is marked by #LM below
 ##  to the original function

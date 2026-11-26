@@ -223,12 +223,12 @@ Now every <M>p</M>-modular character <M>\chi</M> of
 <Alt Not="LaTeX"><M>Sym(n)</M></Alt> 
 has a label of the form <C>[1,c]</C> where <C>c</C> is a 
 <M>p</M>-regular partition of <M>n</M>. <P />
-Again, the labels for the <M>p</M>-modular spin characters of
+Again, the labels for the <M>p</M>-modular characters of
 <Alt Only="LaTeX"><M>A_n</M></Alt>
 <Alt Not="LaTeX"><M>Alt(n)</M></Alt> 
 follow from the labels of 
 <Alt Only="LaTeX"><M>S_n</M></Alt><Alt Not="LaTeX"><M>Sym(n)</M></Alt>.
-However, comparing subsection 
+However, compared with Subsection 
 <Ref Subsect="subsec:characterparameters:ordinary"/>, 
 their format is slightly different. <P/>
 If <M>\chi</M> and <M>\xi</M> are distinct 
@@ -261,7 +261,7 @@ consisting of all inflated <M>p</M>-modular characters of
 <Alt Not="LaTeX"><M>Sym(n)</M></Alt>
 and the subset of spin characters 
 characterized by negative integer values on the central element 
-<M>z</M>. The analogue statement holds for 
+<M>z</M>. The analogous statement holds for 
 <Alt Not="LaTeX"><M>2.Alt(n)</M></Alt><Alt Only="LaTeX"><M>\tilde{A}_n</M></Alt>.
 The set of <M>p</M>-modular spin characters of 
 <Alt Not="LaTeX"><M>2.Sym(n)</M></Alt>
@@ -272,7 +272,7 @@ A partition is called <M>p</M>-strict if every repeated part
 is divisible by <M>p</M>, and a <M>p</M>-strict partition 
 <M>\lambda</M> is restricted if  
 <M>\lambda_i-\lambda_{i+1}&lt;p</M> whenever <M>\lambda_i</M> 
-is divisible <M>p</M>, and 
+is divisible by <M>p</M>, and 
 <M>\lambda_i-\lambda_{i+1}\leq p</M> otherwise for all parts 
 <M>\lambda_i</M> of 
 <M>\lambda</M> (where we set <M>\lambda_{i+1}=0</M> if 
@@ -740,7 +740,7 @@ The construction of the character tables of <A>type</A>
 <C>"Alternating"</C>,
 <C>"AlternatingSymmetric"</C>, or
 <C>"SymmetricAlternating"</C> is straightforward and may be 
-accomplished by first construcing a direct product, 
+accomplished by first constructing a direct product, 
 for example, the character table of 
 <Alt Only="LaTeX"><M>\tilde{S}_k\times\tilde{A}_{l}</M></Alt><Alt Not="LaTeX"><M>2.Sym(k){\times}2.Alt(l)</M></Alt>, 
 followed by the construction of the character table of the
@@ -785,8 +785,7 @@ returned by the function
 <Description> 
 If the rational prime <A>p</A> is odd, then the construction of the irreducible 
 Brauer characters is really the same as in the ordinary case 
-but it depends on the <A>p</A>-modular tables of 
-of <A>ordtbl</A>'s `ingredients'. 
+but it depends on the <A>p</A>-modular tables of <A>ordtbl</A>'s `ingredients'. 
 If some Brauer table that is 
 necessary for the construction is not available then 
 <C>fail</C> is returned. <P/>
@@ -802,7 +801,6 @@ We call a character table returned by
 a SpinSym table too. It has lists of class and 
 character parameters whose format 
 is explained in <Cite Key="Maas2011" Where="Sections 5.2, 5.3"/>.
-</Section>
 
 <Log><![CDATA[
 gap> SpinSymBrauerTableOfMaximalYoungSubgroup(2AA,3);
@@ -816,12 +814,13 @@ gap> ct2:= CharacterTable("Sym(5)") mod 2;;
 gap> Irr(ct1*ct2) = Irr(ct);
 true
 ]]></Log>
+</Section>
 
 <Section Label="sec:classfusions">
 <Heading>Class Fusions</Heading>
 The following functions determine class fusion maps between 
 SpinSym tables by means of their class parameters. 
-Such `default' class fusion maps allow to induce 
+Such `default' class fusion maps allow one to induce 
 characters from various subgroups of 
 <Alt Not="LaTeX"><M>2.Sym(n)</M></Alt>
 <Alt Only="LaTeX"><M>\tilde{S}_n</M></Alt> 
@@ -1010,7 +1009,7 @@ and <Alt Only="LaTeX"><M>\tilde{A}_n</M></Alt><Alt Not="LaTeX"><M>2.Alt(n)</M></
 respectively, a corresponding class fusion map with respect 
 to the embedding of 
 <Alt Only="LaTeX"><M>\langle t_1t_{n-1},\ldots,t_{n-3}t_{n-1}\rangle\cong\tilde{S}_{n-2}</M></Alt>
-<Alt Not="LaTeX"><M>&lt; t_1t_{n-1},\ldots,t_{n-3}t_{n-1} &gt;</M> isomorphic to <M>2.Sym(n-2)</M></Alt> 
+<Alt Not="LaTeX"><M>&lt; t_1t_{n-1},...,t_{n-3}t_{n-1} &gt;</M> isomorphic to <M>2.Sym(n-2)</M></Alt> 
 in 
 <Alt Only="LaTeX"><M>\tilde{A}_n</M></Alt>
 <Alt Not="LaTeX"><M>2.Alt(n)</M></Alt> is determined. 

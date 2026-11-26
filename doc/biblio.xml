@@ -1,6 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!--  biblio.xml    SpinSym GAP package    Lukas Maas  -->
-
-<?xml version="2.0" encoding="UTF-8"?>
 <!DOCTYPE file SYSTEM "bibxmlext.dtd">
 <file>
 
@@ -12,8 +11,8 @@
        <last>Breuer</last>
      </name>
      </author>  
-     <title><C>CTblLib. The GAP Character Table Library</C>, v1.2.2</title>
-     <howpublished><URL>https://www.gap-system.org/Packages/ctbllib.html</URL></howpublished>
+     <title><C>CTblLib. The GAP Character Table Library</C></title>
+     <howpublished><URL>https://www.math.rwth-aachen.de/~Thomas.Breuer/ctbllib/</URL></howpublished>
   </misc>
   </entry>
 
