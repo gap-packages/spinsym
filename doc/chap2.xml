@@ -910,7 +910,7 @@ gap> ctS:= SpinSymCharacterTableOfMaximalYoungSubgroup(10,8,"Symmetric");;
 gap> GetFusionMap(ctS,ctD);
 fail
 gap> SpinSymClassFusion(ctS,ctD);;
-#I SpinSymClassFusion: stored fusion map from 2.(Sym(10)xSym(8)) to 2.Sym(18)
+#I  SpinSymClassFusion: stored fusion map from 2.(Sym(10)xSym(8)) to 2.Sym(18)
 gap> GetFusionMap(ctS,ctD) <> fail;
 true
 ]]></Log>

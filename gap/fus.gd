@@ -7,6 +7,9 @@
 ##
 #############################################################################
 
+DeclareInfoClass( "InfoSpinSym" );
+SetInfoLevel( InfoSpinSym, 1 );
+
 DeclareGlobalFunction( "SpinSymClassFusion2Ain2S" );
 DeclareGlobalFunction( "SpinSymClassFusion2Sin2S" );
 DeclareGlobalFunction( "SpinSymClassFusion2Ain2A" );
