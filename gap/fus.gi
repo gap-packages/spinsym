@@ -23,7 +23,7 @@
 ## Sym(m) .... Sm
 ## Alt(m) .... Am
 ## 2.Sym(m) .. 2Sm
-## 2.Alt(m) .. 2Sm
+## 2.Alt(m) .. 2Am
 
 #############################################################################
 ## HELPER FUNCTIONS
@@ -484,7 +484,7 @@ InstallGlobalFunction( SpinSymClassFusion2AAin2A, function( cclX, cclY )
 
       fi;
 
-      ## y[1]=1 if the exponent of z in even, y[2]=2 otherwise
+      ## y[1]=1 if the exponent of z is even, y[1]=2 otherwise
       y:= [ y[1] mod 2 + 1, y[2] ];
 
     fi;
