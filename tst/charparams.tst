@@ -4,9 +4,7 @@
 ##
 #############################################################################
 
-gap> START_TEST( "SpinSym character parameters" );
-gap> LoadPackage( "SpinSym", false );
-true
+gap> START_TEST( "charparams.tst" );
 
 # The non-spin p-modular characters of 2.Alt(n) are inflated from Alt(n)
 # and carry its labels [1,[c,'0']], [1,[c,'+']], [1,[c,'-']].
