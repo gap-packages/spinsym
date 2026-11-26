@@ -4,9 +4,7 @@
 ##
 #############################################################################
 
-gap> LoadPackage( "SpinSym", false );
-true
-gap> 
+gap> START_TEST( "testall.tst" );
 gap> ordtbl:= CharacterTable( "2.Sym(18)" );
 CharacterTable( "2.Sym(18)" )
 gap> modtbl:= ordtbl mod 3;
@@ -131,3 +129,4 @@ gap> ct1:= CharacterTable("Sym(8)") mod 2;;
 gap> ct2:= CharacterTable("Sym(5)") mod 2;;     
 gap> Irr( ct1*ct2 ) = Irr( ct );
 true
+gap> STOP_TEST( "testall.tst" );
