@@ -1,103 +1,110 @@
 #############################################################################
-##  
-##  Demo PackageInfo.g for the GitHubPagesForGAP
+##
+##  PackageInfo.g for the package `SpinSym'                      Lukas Maas
 ##
 
 SetPackageInfo( rec(
 
-PackageName := "GitHubPagesForGAP",
-
-Subtitle := "A GitHub Pages generator for GAP packages",
-Version := "0.4",
-Date := "10/04/2025", # dd/mm/yyyy format
-License := "0BSD",
+PackageName := "SpinSym",
+Subtitle := "Brauer tables of spin-symmetric groups",
+Version := "1.5.3",
+Date := "26/11/2026",
+License := "GPL-2.0-or-later",
 
 Persons := [
   rec(
-    LastName      := "Horn",
-    FirstNames    := "Max",
+    LastName      := "Maas",
+    FirstNames    := "Lukas",
     IsAuthor      := true,
     IsMaintainer  := true,
-    Email         := "mhorn@rptu.de",
-    WWWHome       := "https://www.quendi.de/math",
-    GitHubUsername:= "fingolfin",
-    PostalAddress := Concatenation(
-                       "Fachbereich Mathematik\n",
-                       "RPTU Kaiserslautern-Landau\n",
-                       "Gottlieb-Daimler-Straße 48\n",
-                       "67663 Kaiserslautern\n",
-                       "Germany" ),
-    Place         := "Kaiserslautern, Germany",
-    Institution   := "RPTU Kaiserslautern-Landau"
+    Email         := "maasluk@gmail.com",
   ),
 
   rec(
-    LastName      := "Thor",
-    FirstNames    := "A. U.",
-    IsAuthor      := true,
-    IsMaintainer  := false,
-    #Email         := "author@example.com",
-  ),
-
-  rec(
-    LastName      := "Itor",
-    FirstNames    := "Jan",
+    LastName      := "GAP Team",
+    FirstNames    := "The",
     IsAuthor      := false,
     IsMaintainer  := true,
-    #Email         := "janitor@example.com",
+    Email         := "support@gap-system.org",
   ),
+
 ],
 
-Status := "other",
+Status := "deposited",
 
-# The following are not strictly necessary in your own PackageInfo.g
-# (in the sense that update.g only looks at the usual fields
-# like PackageWWWHome, ArchiveURL etc.). But they are convenient
-# if you use exactly the scheme for your package website that we propose.
-GithubUser := "gap-system",
-GithubRepository := ~.PackageName,
-GithubWWW := Concatenation("https://github.com/", ~.GithubUser, "/", ~.GithubRepository),
+##  You must provide the next two entries if and only if the status is
+##  "accepted" because it was successfully refereed:
+# format: 'name (place)'
+# CommunicatedBy := "Mike Atkinson (St. Andrews)",
+#CommunicatedBy := "",
+# format: mm/yyyy
+# AcceptDate := "08/1999",
+#AcceptDate := "",
 
-PackageWWWHome := Concatenation("https://", ~.GithubUser, ".github.io/", ~.GithubRepository, "/"),
-README_URL     := Concatenation( ~.PackageWWWHome, "README.md" ),
-PackageInfoURL := Concatenation( ~.PackageWWWHome, "PackageInfo.g" ),
-# The following assumes you are using the Github releases system. If not, adjust
-# it accordingly.
-ArchiveURL     := Concatenation(~.GithubWWW,
-                    "/releases/download/v", ~.Version, "/",
-                    ~.GithubRepository, "-", ~.Version),
+PackageWWWHome  := "https://gap-packages.github.io/spinsym/",
+README_URL      := Concatenation( ~.PackageWWWHome, "README" ),
+PackageInfoURL  := Concatenation( ~.PackageWWWHome, "PackageInfo.g" ),
+SourceRepository := rec(
+    Type := "git",
+    URL := "https://github.com/gap-packages/spinsym",
+),
+IssueTrackerURL := Concatenation( ~.SourceRepository.URL, "/issues" ),
+ArchiveURL      := Concatenation( ~.SourceRepository.URL,
+                                 "/releases/download/v", ~.Version,
+                                 "/spinsym-", ~.Version ),
+ArchiveFormats := ".tar.gz",
 
-ArchiveFormats := ".tar.gz .tar.bz2",
-
-AbstractHTML := 
-  "This is a pseudo package that contains no actual\
-  <span class=\"pkgname\">GAP</span> code. Instead, it is a template for other\
-  GAP packages that allows to quickly setup GitHub Pages.",
+AbstractHTML:= Concatenation(
+	[ "This package contains Brauer tables of Schur ",
+		"covers of symmetric and alternating groups, ",
+		"and provides some related functionalities." ]),
 
 PackageDoc := rec(
-  BookName  := "GitHubPagesForGAP",
-  ArchiveURLSubset := ["doc"],
-  HTMLStart := "doc/chap0.html",
+  BookName  := "SpinSym",
+  ArchiveURLSubset := [ "doc" ],
+  HTMLStart := "doc/chap0_mj.html",
   PDFFile   := "doc/manual.pdf",
   SixFile   := "doc/manual.six",
-  LongTitle := "A GitHub Pages generator for GAP packages",
+  LongTitle := "The SpinSym Package",
 ),
 
-# The following dependencies are fake and for testing / demo purposes
 Dependencies := rec(
-  GAP := ">=4.8.1",
-  NeededOtherPackages := [
-    ["GAPDoc", ">= 1.2"],
-    ["IO", ">= 4.1"],
-  ],
-  SuggestedOtherPackages := [["orb", ">= 4.2"]],
+  GAP := ">=4.12.0",
+  NeededOtherPackages := [["CTblLib", ">=1.3.0"]],
+  SuggestedOtherPackages := [],
   ExternalConditions := []
+
 ),
 
 AvailabilityTest := ReturnTrue,
 
-Keywords := ["GitHub Pages", "GAP"]
+TestFile := "tst/testall.tst",
+
+Keywords := [ "spin", "projective", "symmetric group", "alternating group",
+						  "Schur cover", "double cover", "Young" ],
+
+
+AutoDoc := rec(
+    TitlePage := rec(
+      Version := Concatenation( "Version ", ~.Version ),
+      Copyright := """
+    &copyright; 2012 Lukas Maas <P/>
+
+    The &SpinSym; &GAP; package is free software:
+    you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 2 of the License, or
+    (at your option) any later version.<P/>
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program (see the file LICENSE).
+    If not, see <URL>https://www.gnu.org/licenses/</URL>.
+""",
+    ),
+  ),
 
 ));
-
-
