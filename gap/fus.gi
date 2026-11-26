@@ -573,21 +573,20 @@ InstallGlobalFunction( SpinSymClassFusion, function( X, Y )
   elif type="2AAfus2A" then
     fus:= SpinSymClassFusion2AAin2A( cclX, cclY );
   else
-    fus:= fail;
+    return fail;
   fi;
 
   ## now store the fusion only if there is no fusion map available
   storedfus:= GetFusionMap( X, Y );
   if storedfus <> fail then
     if storedfus <> fus then
-      Print( "#I SpinSymClassFusion: WARNING\n",
-      "#I ................... a different fusion map from ", idX, " to ",
-      idY, " is stored already\n" );
+      Info( InfoWarning, 1, "SpinSymClassFusion: a different fusion map from ",
+            idX, " to ", idY, " is stored already" );
     fi;
   elif not fail in fus then
     StoreFusion( X, fus, Y );
-    Print( "#I SpinSymClassFusion: stored fusion map from ",
-           idX, " to ", idY, "\n" );
+    Info( InfoSpinSym, 1, "SpinSymClassFusion: stored fusion map from ",
+          idX, " to ", idY );
   else
     return fail;
   fi;
