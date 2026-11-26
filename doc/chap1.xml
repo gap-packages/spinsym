@@ -147,8 +147,10 @@ character tables of some Young subgroups of
 
 <Section Label="chap1:Installation and loading">
 <Heading>Installation and loading</Heading>
-To install this package, download the archive file
-<K>spinsym-1.5.2.tar.gz</K> and unpack it inside the <K>pkg</K> 
+To install this package, download the latest archive file
+<File>spinsym-X.Y.Z.tar.gz</File> from
+<URL>https://github.com/gap-packages/spinsym/releases</URL>
+and unpack it inside the <K>pkg</K>
 subdirectory of your &GAP; installation. It creates a 
 subdirectory called <K>spinsym</K>. Then load the package
 using the <K>LoadPackage</K> command.
