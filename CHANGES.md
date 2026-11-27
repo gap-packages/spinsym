@@ -1,5 +1,10 @@
 This file describes changes in the SpinSym package.
 
+## 1.6.0 (2026-11-27)
+
+- Label the non-spin p-modular characters of 2.Alt(n) like those of
+  Alt(n), as the manual describes: `[1,[c,'0']]` instead of `[1,c]`
+
 ## 1.5.3 (2026-11-26)
 
 - Require GAP >= 4.12.0 and CTblLib >= 1.3.0
